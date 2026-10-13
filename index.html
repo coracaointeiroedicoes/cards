@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Cards para compartilhar · Estoicismo para o Século XXI</title>
+<meta name="description" content="100 reflexões do livro Estoicismo para o Século XXI, de Geanne Castro, em cards prontos para o Instagram e o Status do WhatsApp.">
+<meta property="og:title" content="100 reflexões estoicas para compartilhar">
+<meta property="og:description" content="Escolha uma frase do livro Estoicismo para o Século XXI e baixe o card pronto para o Instagram ou WhatsApp.">
+<meta property="og:image" content="templo-feed.jpg">
+<meta name="theme-color" content="#100e0c">
+<style>
+@font-face{font-family:Pag;src:url(pagella.otf);font-display:swap}
+@font-face{font-family:PagI;src:url(pagella-italic.otf);font-display:swap}
+:root{--bg:#100e0c;--panel:#1a1714;--line:rgba(201,169,110,.22);--gold:#c9a96e;--gold2:#e6cc90;--ink:#f3ece0;--mute:#a99c88}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:Pag,Georgia,serif;min-height:100vh;overflow-x:hidden}
+button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+a{color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero:before{content:"";position:absolute;inset:0;background:url(templo-feed.jpg) right center/cover;opacity:.28;filter:blur(1px)}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 25%,rgba(16,14,12,.6) 70%,rgba(16,14,12,.2)),linear-gradient(0deg,var(--bg),transparent 40%)}
+.hero .wrap{position:relative;z-index:2;display:flex;gap:28px;align-items:center;padding-top:44px;padding-bottom:40px}
+.hero img{width:118px;flex:none;box-shadow:0 18px 40px rgba(0,0,0,.6);transform:perspective(700px) rotateY(-12deg)}
+.kick{font-size:12.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+.hero h1{font-weight:400;font-size:clamp(30px,6.4vw,50px);line-height:1.08;margin:10px 0 12px;letter-spacing:-.01em}
+.hero p{font-family:PagI;color:#d9cdb9;font-size:clamp(16px,3.6vw,19px);line-height:1.45;max-width:560px}
+.steps{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:18px;font-size:14.5px;color:var(--mute)}
+.steps b{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);font-size:12px;margin-right:6px;font-weight:400}
+
+/* controls */
+.bar{position:sticky;top:0;z-index:20;background:rgba(16,14,12,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;padding-top:12px;padding-bottom:12px}
+.seg{display:flex;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:3px}
+.seg button{border:0;background:none;padding:8px 14px;border-radius:999px;font-size:15px;color:var(--mute);display:flex;align-items:center;gap:7px;white-space:nowrap}
+.seg button.on{background:var(--gold);color:#1a140c}
+.seg i{width:12px;height:12px;border-radius:50%;display:block}
+.sw-templo{background:linear-gradient(135deg,#d8d2c6,#2a2520)}
+.sw-aurora{background:linear-gradient(180deg,#5b3a5a,#f0a35f)}
+.sw-cosmos{background:radial-gradient(circle at 40% 40%,#8a7fb8,#121633)}
+.search{flex:1;min-width:180px;display:flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:0 14px}
+.search input{flex:1;background:none;border:0;outline:0;color:var(--ink);font:inherit;font-size:16px;padding:9px 0}
+.search svg{width:16px;height:16px;stroke:var(--mute);flex:none}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:0 16px 12px;max-width:1100px;margin:0 auto;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chips button{flex:none;border:1px solid var(--line);background:none;border-radius:999px;padding:6px 13px;font-size:14px;color:var(--mute);white-space:nowrap}
+.chips button.on{border-color:var(--gold);color:var(--gold2);background:rgba(201,169,110,.1)}
+
+/* grid */
+.count{color:var(--mute);font-size:14px;margin:18px 0 12px;font-family:PagI}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding-bottom:40px}
+@media(min-width:640px){.grid{grid-template-columns:repeat(3,1fr);gap:16px}}
+@media(min-width:960px){.grid{grid-template-columns:repeat(4,1fr)}}
+.item{border:0;background:var(--panel);border-radius:10px;overflow:hidden;position:relative;display:block;width:100%;box-shadow:0 8px 22px rgba(0,0,0,.35);transition:transform .15s}
+.item:active{transform:scale(.97)}
+.item canvas{display:block;width:100%;height:auto}
+.item .n{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.55);color:var(--gold2);font-size:12px;border-radius:999px;padding:3px 8px}
+.empty{grid-column:1/-1;text-align:center;color:var(--mute);padding:50px 0;font-family:PagI}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:50;background:#0b0908;display:none;flex-direction:column;align-items:center;justify-content:center;padding:16px;padding-bottom:calc(16px + env(safe-area-inset-bottom))}
+.modal.open{display:flex}
+.modal .pv{max-width:min(100%,460px);max-height:calc(100vh - 210px);width:auto;height:auto;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.7);-webkit-touch-callout:default}
+.modal .acts{display:flex;gap:10px;margin-top:16px;width:100%;max-width:460px}
+.modal .acts button{flex:1;border-radius:14px;padding:14px 10px;font-size:16.5px;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn-main{background:var(--gold);color:#1a140c;border:0}
+.btn-sec{background:none;border:1px solid var(--gold);color:var(--gold2)}
+.modal .acts svg{width:19px;height:19px}
+.modal .tip{font-family:PagI;color:var(--mute);font-size:14px;margin-top:12px;text-align:center;max-width:460px}
+.modal .nav{display:flex;justify-content:space-between;align-items:center;width:100%;max-width:460px;margin-bottom:12px}
+.modal .nav button{border:0;background:none;color:var(--ink);font-size:15px;padding:8px 4px;display:flex;align-items:center;gap:6px}
+.modal .nav .x{font-size:28px;line-height:1;padding:0 6px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(30px);opacity:0;background:var(--gold);color:#1a140c;padding:11px 18px;border-radius:999px;font-size:15px;z-index:60;transition:.25s;pointer-events:none}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* footer */
+.cta{border-top:1px solid var(--line);padding:42px 0 54px;text-align:center}
+.cta h2{font-weight:400;font-size:26px;margin-bottom:8px}
+.cta p{font-family:PagI;color:var(--mute);margin-bottom:20px;font-size:16.5px}
+.cta a{display:inline-block;background:var(--gold);color:#1a140c;text-decoration:none;border-radius:999px;padding:14px 26px;font-size:16.5px}
+.cta small{display:block;margin-top:26px;color:#7d7262;font-size:13px;letter-spacing:.06em}
+@media(max-width:520px){.hero .wrap{gap:18px;padding-top:30px}.hero img{width:84px}.seg button{padding:8px 11px;font-size:14px}}
+</style>
+</head>
+<body>
+
+<header class="hero"><div class="wrap">
+  <img src="capa.jpg" alt="Capa do livro Estoicismo para o Século XXI">
+  <div>
+    <div class="kick">Estoicismo para o Século XXI</div>
+    <h1>100 reflexões para guardar e compartilhar</h1>
+    <p>Escolha a frase que falou com você hoje e leve para o seu Instagram ou Status do WhatsApp.</p>
+    <div class="steps"><span><b>1</b>Escolha o estilo</span><span><b>2</b>Toque na frase</span><span><b>3</b>Baixe ou compartilhe</span></div>
+  </div>
+</div></header>
+
+<div class="bar"><div class="wrap">
+  <div class="seg" id="st">
+    <button data-v="templo" class="on"><i class="sw-templo"></i>Templo</button>
+    <button data-v="aurora"><i class="sw-aurora"></i>Aurora</button>
+    <button data-v="cosmos"><i class="sw-cosmos"></i>Cosmos</button>
+  </div>
+  <div class="seg" id="fm">
+    <button data-v="feed" class="on">Feed</button>
+    <button data-v="story">Status / Stories</button>
+  </div>
+  <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="q" type="search" placeholder="Buscar: ansiedade, limites, tempo…" autocomplete="off"></label>
+</div>
+<div class="chips" id="pt"></div>
+</div>
+
+<main class="wrap">
+  <div class="count" id="count"></div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<section class="cta"><div class="wrap">
+  <h2>As 100 reflexões completas estão no livro</h2>
+  <p>Cada uma com a cena do dia a dia, o princípio estoico, uma pergunta e uma prática para hoje.</p>
+  <a href="https://pay.hotmart.com/S107849311X" target="_blank" rel="noopener">Quero o livro</a>
+  <small>© Geanne Castro · Coração Inteiro Edições</small>
+</div></section>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+  <div class="nav">
+    <button id="prev" aria-label="Anterior">‹ Anterior</button>
+    <button class="x" id="close" aria-label="Fechar">×</button>
+    <button id="next" aria-label="Próxima">Próxima ›</button>
+  </div>
+  <img class="pv" id="pv" alt="">
+  <div class="acts">
+    <button class="btn-main" id="share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg>Compartilhar</button>
+    <button class="btn-sec" id="dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Baixar</button>
+  </div>
+  <div class="tip" id="tip">No iPhone, você também pode tocar e segurar a imagem e escolher “Salvar na Fotos”.</div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const DATA = [[1, "Nem todo silêncio precisa de uma interpretação.", "Você não controla a resposta", "I"], [2, "Ouvir uma opinião não significa entregar a ela autoridade sobre quem você é.", "Você não precisa responder a toda opinião sobre você", "I"], [3, "Não transforme a vitrine da vida alheia na régua da sua.", "A vida dos outros parece melhor na tela", "I"], [4, "Números podem medir seus resultados. Não permita que determinem seu valor.", "Seu valor não cabe em métricas", "I"], [5, "Aquilo que recebe sua atenção recebe uma parte da sua vida. Escolha com cuidado.", "Você está ocupado ou apenas distraído?", "I"], [6, "Você não precisa saber tudo o que está acontecendo para estar presente na vida que está acontecendo com você.", "Você não precisa saber de tudo o tempo todo", "I"], [7, "A urgência de outra pessoa pode merecer sua ajuda sem adquirir automaticamente o direito de comandar sua vida.", "Nem toda urgência é sua", "I"], [8, "Prepare suas palavras. Não invente as respostas do outro.", "Pare de ensaiar conversas que nunca aconteceram", "I"], [9, "Você não pode oferecer ao passado uma decisão nova. Pode oferecer ao presente uma pessoa diferente.", "O passado não aceita novas versões", "I"], [10, "Faça sua parte inteira. Não exija do mundo a garantia do resultado.", "Faça o que depende de você — e solte o resultado", "I"], [11, "Um pensamento merece ser ouvido. Não merece ser acreditado apenas porque apareceu.", "Um pensamento não é automaticamente verdade", "II"], [12, "Sua primeira reação pode acontecer antes da escolha. O que você faz depois começa a revelar seu caráter.", "Não confunda sua primeira reação com sua escolha", "II"], [13, "Não saber o que acontecerá não significa que algo ruim esteja acontecendo.", "Não confunda incerteza com perigo", "II"], [14, "Não diminua a dor. Apenas não lhe entregue um tamanho maior do que ela realmente possui.", "Não transforme desconforto em catástrofe", "II"], [15, "Mudar a distância não apaga o problema. Pode apenas devolver a ele o tamanho que realmente possui.", "O problema pode ser menor quando visto de longe", "II"], [16, "Você participa da vida das outras pessoas. Isso não significa que seja a explicação para tudo o que acontece dentro delas.", "Você não é o centro de tudo o que acontece", "II"], [17, "Você pode julgar um comportamento sem fingir que conhece completamente a mente de quem o praticou.", "Você não conhece as intenções dos outros tão bem quanto imagina", "II"], [18, "Antes de procurar uma resposta melhor, verifique se você está fazendo uma pergunta que merece ser respondida.", "Mude a pergunta antes de procurar a resposta", "II"], [19, "Seu passado contém fatos. Não permita que uma interpretação deles escreva sozinha o restante da sua história.", "Um acontecimento não é a história inteira", "II"], [20, "Dizer “não sei” não diminui seu conhecimento. Impede que você preencha com certeza aquilo que ainda está vazio de evidência.", "Aprenda a dizer “não sei”", "II"], [21, "Ter razão para sentir raiva não concede à raiva o direito de decidir quem você será depois dela.", "A raiva pode ter uma razão sem ter o direito de comandar", "III"], [22, "Você não precisa devolver a ferida para impedir que ela continue governando sua vida.", "A vingança prolonga aquilo que feriu você", "III"], [23, "Nem todo ataque exige defesa. Algumas provocações perdem força quando você recusa o papel que tentaram lhe entregar.", "Nem toda provocação merece sua energia", "III"], [24, "Coragem não é receber garantia de que tudo dará certo. É não exigir essa garantia para fazer aquilo que você julgou digno de ser feito.", "Você pode estar com medo e continuar caminhando", "III"], [25, "Quanto mais difícil for desfazer uma decisão, menos ela deveria depender de uma emoção que talvez amanhã já tenha mudado.", "Não tome decisões permanentes no auge de uma emoção passageira", "III"], [26, "Nem tudo o que você inveja é algo que realmente deseja. Às vezes você deseja apenas o valor que imaginou que aquilo daria a você.", "A inveja pode revelar alguma coisa sobre seus desejos", "III"], [27, "A tristeza pode ocupar um período da sua vida sem receber o direito de definir toda a sua identidade.", "Não transforme tristeza em identidade", "III"], [28, "Você pode reconhecer que alguém lhe deve uma reparação sem transformar o pagamento dessa dívida na condição para continuar vivendo.", "O ressentimento mantém uma dívida aberta dentro de você", "III"], [29, "Calma não é permitir tudo. É não precisar perder o governo de si para deixar claro aquilo que você não permitirá.", "Calma não é fraqueza", "III"], [30, "Você não precisa ter a última palavra para permanecer inteiro. Às vezes, a maior vitória é não sacrificar seu caráter para parecer vencedor.", "Você não precisa vencer uma discussão para preservar sua dignidade", "III"], [31, "Quando um plano quebra, não pergunte apenas como reconstruí-lo. Pergunte se existe outra maneira de continuar construindo aquilo que realmente importava.", "Planos quebram. Você não precisa quebrar junto.", "IV"], [32, "Persistir não é bater eternamente na mesma porta. Às vezes é continuar caminhando depois de aceitar que aquela porta não abrirá.", "O obstáculo muda o caminho, não necessariamente o destino", "IV"], [33, "O fim de uma história pode mudar seu significado. Não possui poder para apagar o fato de que ela aconteceu.", "Perder não apaga aquilo que existiu", "IV"], [34, "Sentir falta de alguma coisa não significa que você precise convidá-la novamente para sua vida.", "Algumas portas fechadas devem permanecer fechadas", "IV"], [35, "Recomeçar não é voltar ao ponto de partida quando você já não é a pessoa que partiu da primeira vez.", "Você pode começar novamente sem voltar ao início", "IV"], [36, "Talvez você nunca encontre uma explicação capaz de tornar justo aquilo que aconteceu. Ainda poderá decidir o que fará depois.", "Não pergunte apenas “por que comigo?”", "IV"], [37, "Resistência não é provar que a dor não entrou. É impedir que ela decida sozinha o que acontecerá depois.", "Resistência não é fingir que não doeu", "IV"], [38, "Prepare-se para a tempestade possível. Não passe todos os dias vivendo como se ela já tivesse começado.", "Prepare-se para dificuldades sem viver assustado por elas", "IV"], [39, "Desfrute do conforto sem entregar a ele a responsabilidade por sua capacidade de viver.", "Conforto demais também pode nos enfraquecer", "IV"], [40, "Você não precisa agradecer por aquilo que o feriu. Mas pode decidir que a ferida não receberá autoridade para escolher quem você ferirá depois.", "Adversidade revela; caráter decide o que fazer com ela", "IV"], [41, "O tempo que você não vive hoje não fica guardado esperando que sua vida finalmente comece.", "Você não está guardando tempo para depois", "V"], [42, "Aquilo que você adia indefinidamente também está recebendo uma decisão: a decisão silenciosa de não existir ainda.", "Procrastinar também é escolher", "V"], [43, "Você não precisa esperar sentir-se pronto para tudo. Precisa estar suficientemente preparado para o próximo passo.", "Talvez o momento perfeito nunca chegue", "V"], [44, "Resolver a vida não é uma etapa anterior a viver. Resolver problemas também faz parte da vida.", "Não adie a vida até resolver todos os problemas", "V"], [45, "Velocidade é uma vantagem apenas quando você escolheu bem a direção.", "Estar sempre com pressa não significa estar avançando", "V"], [46, "O futuro pode lhe oferecer outra oportunidade. Apenas não confunda possibilidade com promessa.", "O futuro não lhe deve uma oportunidade", "V"], [47, "Nem tudo o que pode ser acelerado deveria ser. Algumas experiências perdem justamente aquilo que possuem de melhor quando tentamos terminá-las depressa.", "Algumas coisas merecem ser feitas devagar", "V"], [48, "Construa o futuro sem transformar o presente inteiro em material de construção.", "Você está vivendo ou apenas preparando-se para viver?", "V"], [49, "Você não precisa controlar os próximos mil dias. Precisa impedir que todos eles passem sem direção.", "O que merece seus próximos mil dias?", "V"], [50, "Não espere um dia extraordinário para perceber que hoje também foi uma parte irrepetível da sua vida.", "Hoje também está sendo descontado da sua vida", "V"], [51, "Você pode dizer claramente aquilo de que precisa. O que não pode é transformar sua expectativa em obrigação secreta de outra pessoa.", "As pessoas não existem para corresponder às suas expectativas", "VI"], [52, "Amar alguém é construir um vínculo com uma pessoa livre, não adquirir proteção contra a possibilidade de perdê-la.", "Amar alguém não significa possuí-lo", "VI"], [53, "Um limite saudável não precisa controlar a escolha do outro. Precisa tornar clara a escolha que você fará diante dela.", "Limite não é punição", "VI"], [54, "Compreender por que alguém o feriu pode diminuir o ódio. Não cria obrigação de permanecer disponível para ser ferido novamente.", "Você pode compreender alguém e ainda assim ir embora", "VI"], [55, "Você pode abandonar a vingança sem devolver a alguém o mesmo lugar que essa pessoa ocupava antes de feri-lo.", "Perdoar não exige reconstruir a relação", "VI"], [56, "Escutar não entrega sua razão ao outro. Apenas garante que você esteja respondendo à conversa que realmente está acontecendo.", "Escute para compreender, não apenas para responder", "VI"], [57, "Autoconhecimento também é descobrir como é conviver com você.", "Você também é uma pessoa difícil para alguém", "VI"], [58, "Um coração bondoso não precisa fechar os olhos para continuar bondoso.", "Gentileza não exige ingenuidade", "VI"], [59, "Você não é responsável por consertar sozinho a sociedade. Mas também não vive fora dela.", "Uma sociedade melhor também depende de você", "VI"], [60, "Ser inteiro não significa não precisar de ninguém. Significa conseguir encontrar outras pessoas sem exigir que elas preencham tudo aquilo que existe em você.", "Não existe virtude completamente solitária", "VI"], [61, "Quem nunca define o suficiente transforma qualquer quantidade em pouco.", "Quanto é suficiente?", "VII"], [62, "Algumas coisas podem ser compradas. O problema começa quando tentamos comprar através delas aquilo que não estava à venda.", "Comprar não resolve toda falta", "VII"], [63, "Toda posse acrescenta alguma coisa à sua vida — inclusive a possibilidade de perdê-la.", "Possuir mais cria coisas novas para perder", "VII"], [64, "O luxo é mais seguro quando permanece uma experiência agradável e não se torna uma condição para você se considerar bem.", "Luxo é agradável; dependência dele é outra coisa", "VII"], [65, "Seu cargo descreve uma função que você ocupa. Seu caráter aparece na maneira como você a ocupa.", "Seu cargo não é seu caráter", "VII"], [66, "Ser visto por muitas pessoas não é a mesma coisa que possuir uma vida digna de ser vista.", "Fama é viver na cabeça de desconhecidos", "VII"], [67, "Não comprometa anos da sua vida para sustentar durante alguns segundos uma impressão na vida de outra pessoa.", "Não compre uma vida para impressionar quem não vive com você", "VII"], [68, "Dinheiro pode ampliar sua liberdade externa. Ainda será necessário decidir o que fazer com essa liberdade.", "Ter dinheiro e ser governado pelo dinheiro são coisas diferentes", "VII"], [69, "Elogio pode ser recebido como presente. O problema começa quando ele se torna alimento sem o qual sua identidade acredita que não consegue sobreviver.", "O ego também sente fome", "VII"], [70, "Aplauso pode acompanhar uma vida boa. Não deveria ser necessário para provar que ela está acontecendo.", "Você ainda faria isso se ninguém aplaudisse?", "VII"], [71, "Você não precisa sentir vontade de começar para descobrir que era capaz de continuar.", "Motivação não precisa chegar primeiro", "VIII"], [72, "Cada repetição é pequena. O caráter que elas constroem pode não ser.", "O que você repete está treinando você", "VIII"], [73, "Uma ferramenta aumenta sua liberdade quando amplia aquilo que você pode fazer sem diminuir aquilo que ainda precisa saber escolher.", "Facilidade não é sempre liberdade", "VIII"], [74, "Nem todo desconforto é um aviso para parar. Às vezes é apenas a sensação de permanecer quando fugir seria mais fácil.", "Aprenda a suportar um pouco de desconforto", "VIII"], [75, "Disciplina não é apenas fazer aquilo que importa. É impedir que aquilo que importa seja consumido por tudo o que pede espaço.", "Dizer não também é disciplina", "VIII"], [76, "Sentir vontade é uma experiência. Obedecer à vontade é outra.", "Você não precisa transformar todo desejo em ação", "VIII"], [77, "Começar pequeno não diminui uma grande intenção. Dá a ela um lugar real onde existir.", "Comece pequeno, mas comece de verdade", "VIII"], [78, "Disciplina é poderosa demais para ser praticada sem perguntar para onde ela está levando você.", "Disciplina sem propósito vira prisão", "VIII"], [79, "Uma vida inteira é construída, em grande parte, pela qualidade com que você realiza aquilo que está diante de você agora.", "Faça bem o que está diante de você", "VIII"], [80, "Chega um momento em que aprender mais sobre o caminho deixa de ser avanço. Você precisa caminhar.", "Pare de estudar a vida que você se recusa a praticar", "VIII"], [81, "Caráter é aquilo que continua existindo quando a plateia desaparece.", "Quem você é quando ninguém está olhando?", "IX"], [82, "Um princípio revela seu peso quando começa a competir com alguma coisa que você deseja preservar.", "Ser correto quando custa alguma coisa", "IX"], [83, "Coragem não é desprezar o perigo. É não permitir que nem o medo nem o orgulho decidam sozinhos como você enfrentará o perigo.", "Coragem não é imprudência", "IX"], [84, "Não controlar toda a injustiça não elimina a responsabilidade pelo pedaço de justiça que depende de você.", "Justiça também é estoicismo", "IX"], [85, "Liberdade não é manter todas as portas abertas para sempre. Também é aprender quais merecem ser atravessadas.", "Sabedoria é saber o que merece escolha", "IX"], [86, "Temperança não é incapacidade de desfrutar. É capacidade de desfrutar sem precisar obedecer ao excesso.", "Temperança é liberdade diante do excesso", "IX"], [87, "Pensar por si mesmo não significa discordar da multidão. Significa não precisar dela para fazer o trabalho que pertence ao seu julgamento.", "Não terceirize seu julgamento para a multidão", "IX"], [88, "Use máquinas para ampliar sua capacidade. Não entregue automaticamente a elas a responsabilidade de decidir quem você deve ser.", "Nem para uma máquina", "IX"], [89, "Mudar diante de razões melhores não é abandonar o próprio julgamento. É demonstrar que ele ainda está vivo.", "Mudar de opinião pode ser sinal de força", "IX"], [90, "Valores não existem apenas naquilo que você admira. Tornam-se caráter naquilo que você pratica.", "Torne-se aquilo que diz valorizar", "IX"], [91, "Lembrar que você morrerá não diminui a vida. Pode impedir que você continue tratando a vida como se ela não estivesse acontecendo.", "Você vai morrer — e isso muda o que importa", "X"], [92, "Lembrar que alguém é mortal não é começar a perdê-lo. É parar de agir como se sua presença fosse garantida.", "As pessoas que você ama também são mortais", "X"], [93, "Não espere a ausência ensinar sozinho o valor daquilo que ainda está presente.", "Não espere perder para perceber", "X"], [94, "Envelhecer muda muitas coisas em você. Não transforma o fato de continuar vivendo em fracasso.", "Envelhecer não é fracassar", "X"], [95, "Cuide do corpo que possui sem exigir que ele se torne outro antes de permitir que você viva.", "Seu corpo mudará", "X"], [96, "Você não precisa saber qual será a última vez para aprender a estar presente nesta vez.", "Algum dia será a última vez", "X"], [97, "Você não precisa ser lembrado para sempre para ter sido importante enquanto esteve aqui.", "Você não precisa deixar um império para ter vivido bem", "X"], [98, "Deseje muitos anos. Apenas não espere por muitos anos para começar a viver de uma maneira que lhes dê profundidade.", "A vida não precisa ser longa para ter profundidade", "X"], [99, "Alguns dos melhores dias da sua vida talvez não anunciem que são importantes enquanto estão acontecendo.", "Se você pudesse devolver um dia, qual escolheria viver novamente?", "X"], [100, "Você não controla toda a história. Mas, enquanto houver vida e escolha, ainda participa da escrita da próxima linha.", "Enquanto há vida, há uma escolha diante de você", "X"]];
+const PARTES = {I:'O que depende de você',II:'Pensamentos',III:'Emoções',IV:'Adversidade',V:'Tempo',VI:'Relações',VII:'Dinheiro e ego',VIII:'Disciplina',IX:'Caráter',X:'Finitude'};
+
+/* layout of the text block, in card pixels (1080 wide) */
+const LAY = {
+  templo:{feed:{x:84,y:100,w:500,h:800,al:'left',va:'center'},story:{x:84,y:190,w:900,h:560,al:'left',va:'center'}},
+  aurora:{feed:{x:84,y:90,w:820,h:560,al:'left',va:'top'},story:{x:84,y:200,w:860,h:760,al:'left',va:'top'}},
+  cosmos:{feed:{x:110,y:100,w:860,h:640,al:'center',va:'center'},story:{x:110,y:200,w:860,h:820,al:'center',va:'center'}}
+};
+const COL = {
+  templo:{cap:'#c9a96e',q:'#f4ede2',t:'#cdbfa8',sh:'rgba(0,0,0,.6)'},
+  aurora:{cap:'#ffe2b0',q:'#fff8ee',t:'#ffe6c6',sh:'rgba(60,20,30,.55)'},
+  cosmos:{cap:'#e9d3a4',q:'#fbf6ee',t:'#e6dccd',sh:'rgba(0,0,20,.7)'}
+};
+
+const imgs = {};
+function loadImg(k){ if(!imgs[k]) imgs[k]=new Promise((res,rej)=>{const i=new Image();i.onload=()=>res(i);i.onerror=rej;i.src=''+k+'.jpg'}); return imgs[k]; }
+const fontsReady = Promise.all([new FontFace('Pag','url(pagella.otf)').load(),new FontFace('PagI','url(pagella-italic.otf)').load()]).then(fs=>fs.forEach(f=>document.fonts.add(f))).catch(()=>{});
+
+function qmax(len,story){const b=len<60?76:len<95?68:len<130?60:len<165?54:50;return b+(story?6:0)}
+
+function wrap(ctx,text,maxW){
+  const words=text.split(' ');const lines=[];let cur='';
+  for(const w of words){const t=cur?cur+' '+w:w; if(ctx.measureText(t).width<=maxW||!cur){cur=t}else{lines.push(cur);cur=w}}
+  if(cur)lines.push(cur);return lines;
+}
+function spaced(ctx,text,x,y,sp,al){
+  const chars=[...text];let w=0;for(const c of chars)w+=ctx.measureText(c).width+sp;w-=sp;
+  let cx=al==='center'?x-w/2:x;
+  for(const c of chars){ctx.fillText(c,cx,y);cx+=ctx.measureText(c).width+sp}
+}
+
+async function draw(canvas,r,style,fmt,scale){
+  const story=fmt==='story',W=1080,H=story?1920:1350;
+  canvas.width=Math.round(W*scale);canvas.height=Math.round(H*scale);
+  const ctx=canvas.getContext('2d');
+  const [bg]=await Promise.all([loadImg(style+'-'+fmt),fontsReady]);
+  ctx.setTransform(scale,0,0,scale,0,0);
+  ctx.drawImage(bg,0,0,W,H);
+  const L=LAY[style][fmt],C=COL[style];
+  const [n,guard,title]=r;
+  const tSize=story?34:27,capSize=21,capH=26,ruleBlock=30+1+22,gap=24,pad=16;
+  ctx.textBaseline='alphabetic';
+  let size=qmax(guard.length,story),qLines,tLines,total;
+  for(;;){
+    ctx.font=size+'px Pag';qLines=wrap(ctx,guard,L.w);
+    ctx.font=tSize+'px PagI';tLines=wrap(ctx,title,L.w);
+    total=pad+capH+ruleBlock+qLines.length*size*1.24+gap+tLines.length*tSize*1.3;
+    if(total<=L.h||size<=34)break; size-=2;
+  }
+  let y=L.va==='center'?L.y+(L.h-total)/2+pad:L.y+pad;
+  const ax=L.al==='center'?L.x+L.w/2:L.x;
+  ctx.textAlign=L.al==='center'?'center':'left';
+  // label
+  ctx.fillStyle=C.cap;ctx.font=capSize+'px Pag';ctx.textAlign='left';
+  spaced(ctx,('REFLEXÃO '+n),ax,y+capSize*.95,capSize*.34,L.al);
+  ctx.textAlign=L.al==='center'?'center':'left';
+  y+=capH+30;
+  ctx.fillRect(L.al==='center'?ax-45:ax,y,90,1.2);
+  y+=1+22;
+  // quote
+  ctx.save();ctx.shadowColor=C.sh;ctx.shadowBlur=18;ctx.shadowOffsetY=2;
+  ctx.fillStyle=C.q;ctx.font=size+'px Pag';
+  const lh=size*1.24;
+  qLines.forEach((ln,i)=>ctx.fillText(ln,ax,y+i*lh+(lh-size)/2+size*.8));
+  ctx.restore();
+  y+=qLines.length*lh+gap;
+  ctx.fillStyle=C.t;ctx.font=tSize+'px PagI';
+  const tl=tSize*1.3;
+  tLines.forEach((ln,i)=>ctx.fillText(ln,ax,y+i*tl+(tl-tSize)/2+tSize*.8));
+}
+
+/* ---------- UI ---------- */
+let style='templo',fmt='feed',part='',query='',list=[],cur=0;
+const grid=document.getElementById('grid'),countEl=document.getElementById('count');
+const norm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+
+const pt=document.getElementById('pt');
+pt.innerHTML='<button data-v="" class="on">Todas</button>'+Object.entries(PARTES).map(([k,v])=>`<button data-v="${k}">${v}</button>`).join('');
+function seg(el,cb){el.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;el.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));cb(b.dataset.v)})}
+seg(document.getElementById('st'),v=>{style=v;render()});
+seg(document.getElementById('fm'),v=>{fmt=v;render()});
+seg(pt,v=>{part=v;render()});
+let qt;document.getElementById('q').addEventListener('input',e=>{clearTimeout(qt);qt=setTimeout(()=>{query=norm(e.target.value.trim());render()},200)});
+
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const c=e.target;io.unobserve(c);draw(c,DATA[c.dataset.i],c.dataset.s,c.dataset.f,.32)}})},{rootMargin:'300px'});
+
+function render(){
+  list=DATA.map((r,i)=>i).filter(i=>{const r=DATA[i];if(part&&r[3]!==part)return false;if(query&&!norm(r[1]+' '+r[2]).includes(query))return false;return true});
+  countEl.textContent=list.length===100?'100 reflexões':list.length+(list.length===1?' reflexão':' reflexões');
+  grid.innerHTML='';
+  if(!list.length){grid.innerHTML='<div class="empty">Nenhuma frase encontrada. Tente outra palavra.</div>';return}
+  const ar=fmt==='story'?'1080/1920':'1080/1350';
+  list.forEach((i,k)=>{
+    const b=document.createElement('button');b.className='item';b.setAttribute('aria-label','Reflexão '+DATA[i][0]+': '+DATA[i][1]);
+    const c=document.createElement('canvas');c.style.aspectRatio=ar;c.dataset.i=i;c.dataset.s=style;c.dataset.f=fmt;
+    b.append(c);b.insertAdjacentHTML('beforeend',`<span class="n">${DATA[i][0]}</span>`);
+    b.onclick=()=>open(k);grid.append(b);io.observe(c);
+  });
+}
+
+const modal=document.getElementById('modal'),pv=document.getElementById('pv');
+let blob=null,url=null,token=0;
+async function open(k){
+  cur=k;modal.classList.add('open');document.body.style.overflow='hidden';
+  const my=++token;const r=DATA[list[k]];
+  pv.style.opacity=.35;
+  const c=document.createElement('canvas');await draw(c,r,style,fmt,1);
+  const b=await new Promise(res=>c.toBlob(res,'image/jpeg',.92));
+  if(my!==token)return;
+  if(url)URL.revokeObjectURL(url);blob=b;url=URL.createObjectURL(b);
+  pv.src=url;pv.alt='Card da reflexão '+r[0];pv.style.opacity=1;
+}
+function fname(){const r=DATA[list[cur]];return `reflexao-${String(r[0]).padStart(3,'0')}-${style}-${fmt==='story'?'status':'feed'}.jpg`}
+function close(){modal.classList.remove('open');document.body.style.overflow=''}
+document.getElementById('close').onclick=close;
+modal.addEventListener('click',e=>{if(e.target===modal)close()});
+document.getElementById('prev').onclick=()=>open((cur-1+list.length)%list.length);
+document.getElementById('next').onclick=()=>open((cur+1)%list.length);
+document.addEventListener('keydown',e=>{if(!modal.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')document.getElementById('prev').click();if(e.key==='ArrowRight')document.getElementById('next').click()});
+let sx=null;pv.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+pv.addEventListener('touchend',e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;sx=null;if(Math.abs(dx)>60)(dx<0?document.getElementById('next'):document.getElementById('prev')).click()});
+
+function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('on');setTimeout(()=>el.classList.remove('on'),2200)}
+function download(){if(!blob)return;const a=document.createElement('a');a.href=url;a.download=fname();document.body.append(a);a.click();a.remove();toast('Imagem salva')}
+document.getElementById('dl').onclick=download;
+document.getElementById('share').onclick=async()=>{
+  if(!blob)return;
+  const file=new File([blob],fname(),{type:'image/jpeg'});
+  if(navigator.canShare&&navigator.canShare({files:[file]})){
+    try{await navigator.share({files:[file],text:'Do livro Estoicismo para o Século XXI, de Geanne Castro'})}catch(e){}
+  }else{download()}
+};
+render();
+</script>
+</body>
+</html>
