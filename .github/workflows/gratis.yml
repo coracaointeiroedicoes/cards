@@ -1,0 +1,33 @@
+name: Cards gratis
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  g:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Trocar cards gratis
+        run: |
+          cat > fix.py <<'PY'
+          import json,re
+          s=open('index.html',encoding='utf-8').read()
+          a=s.index('const D=')+8; b=s.index(';\nlet au')
+          D=json.loads(s[a:b])
+          keys=['Visualizado não é sentença','Sofremos mais vezes','Valores não moram na bio','Leve um guarda','Você está triste','Não é porque as coisas','Quem você ama não estará']
+          for r in D: r[6]=0
+          top=[]
+          for k in keys:
+              r=next(r for r in D if r[2].startswith(k)); r[6]=1; D.remove(r); top.append(r)
+          D=top+D
+          s=s[:a]+json.dumps(D,ensure_ascii=False)+s[b:]
+          open('index.html','w',encoding='utf-8').write(s)
+          print(sum(r[6] for r in D))
+          PY
+          python3 fix.py
+          rm fix.py
+          git config user.name "coracaointeiroedicoes"
+          git config user.email "coracaointeiroedicoes@users.noreply.github.com"
+          git commit -am "Novos cards gratis"
+          git push
