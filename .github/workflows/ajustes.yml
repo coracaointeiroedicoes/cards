@@ -1,0 +1,17 @@
+name: Ajustes do site
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  ajustar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Trocar fundo do topo
+        run: |
+          sed -i 's|url(img/card-007.jpg) right center/cover|url(templo-feed.jpg) right 40%/cover|' index.html
+          git config user.name "coracaointeiroedicoes"
+          git config user.email "coracaointeiroedicoes@users.noreply.github.com"
+          git commit -am "Fundo do topo sem texto"
+          git push
