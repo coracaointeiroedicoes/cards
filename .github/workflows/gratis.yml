@@ -15,7 +15,7 @@ jobs:
           s=open('index.html',encoding='utf-8').read()
           a=s.index('const D=')+8; b=s.index(';\nlet au')
           D=json.loads(s[a:b])
-          keys=['Visualizado não é sentença','Sofremos mais vezes','Valores não moram na bio','Leve um guarda','Você está triste','Não é porque as coisas','Quem você ama não estará']
+          keys=['Visualizado não é sentença','Sofremos mais vezes','A raiva pede pressa','Leve um guarda','Você está triste','Não é porque as coisas','Não transforme silêncio']
           for r in D: r[6]=0
           top=[]
           for k in keys:
@@ -31,3 +31,4 @@ jobs:
           git config user.email "coracaointeiroedicoes@users.noreply.github.com"
           git commit -am "Novos cards gratis"
           git push
+
