@@ -165,7 +165,7 @@ body{background:#f3f7f9;color:#203744}.wrap{max-width:760px;gap:20px}.wrap>heade
 </style><style id="iris-video">
 .avatar #irisVid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%;opacity:0;transition:opacity .18s;pointer-events:none;z-index:1}
 .avatar.vid #irisVid{opacity:1}
-.avatar.vid:before{z-index:2}
+.avatar.vid:before{z-index:2}.avatar.vid #iris,.avatar.speaking #iris{animation:none!important}.avatar #iris{will-change:auto!important}
 @media(prefers-reduced-motion:reduce){.avatar #irisVid{display:none}}
 </style></head>
 <body><a class="skip" href="#stage">Ir para o desafio</a>
@@ -177,7 +177,7 @@ body{background:#f3f7f9;color:#203744}.wrap{max-width:760px;gap:20px}.wrap>heade
   <div class="track" id="track" aria-label="Seis passos da avaliação no hospital"></div>
   <details class="case" open><summary>Situação fictícia · leia o caso</summary><p>Uma paciente hospitalizada demonstra medo do tratamento e participa pouco das conversas com a equipe. A família pede que a(o) psicóloga(o) a convença a aceitar os procedimentos.</p></details>
   <div class="hud"><span id="round">Desafio 1 de 4</span><span class="live" id="live"></span><span class="score" id="score">0 pts</span></div>
-  <div class="guide"><div class="avatar" id="avatar"><img id="iris" src="dra-iris-realista.png" alt="Dra. Íris, personagem de jaleco branco e óculos, sorrindo" width="1254" height="1254"><video id="irisVid" muted playsinline loop preload="auto" aria-hidden="true" tabindex="-1"></video></div><div class="bubble" id="say"></div></div>
+  <div class="guide"><div class="avatar" id="avatar"><img id="iris" src="iris-420.jpg" alt="Dra. Íris, personagem de jaleco branco e óculos, sorrindo" width="1254" height="1254"><video id="irisVid" muted playsinline loop preload="auto" aria-hidden="true" tabindex="-1"></video></div><div class="bubble" id="say"></div></div>
 <button class="voice" id="voice" type="button" aria-pressed="false" hidden>Ativar voz da Dra. Íris</button>
 <main tabindex="-1" id="stage" class="card" aria-live="polite"></main>
     <p class="foot">Situação criada pelo grupo para exercício. Base: Resolução CFP nº 31/2022, Cartilha de Avaliação Psicológica (CFP, 2022) e folder do grupo. UNAMA · Avaliação Psicológica · 2026.</p>
@@ -280,18 +280,18 @@ function speak(html,key){
   if(!voiceOn)return;
   try{if(curAudio){curAudio.pause();curAudio=null}}catch(e){}
   if(key&&AUDIO[key]){try{speechSynthesis.cancel()}catch(e){}
-    const au=new Audio(AUDIO[key]);curAudio=au;const av=$('#avatar');av.classList.add('talk');au.onended=au.onerror=()=>av.classList.remove('talk');au.play().catch(()=>{av.classList.remove('talk')});return}
+    const au=new Audio(AUDIO[key]);curAudio=au;const av=$('#avatar');av.classList.add('talk');const stop=()=>{if(curAudio===au)av.classList.remove('talk','speaking')};au.onplaying=()=>av.classList.add('speaking');au.onended=au.onerror=au.onpause=stop;au.play().catch(stop);return}
   if(!('speechSynthesis' in window))return;
   try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(html.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim());
     u.lang='pt-BR';if(ptVoice)u.voice=ptVoice;u.rate=1.02;u.pitch=1.1;
-    u.onstart=()=>$('#avatar').classList.add('talk');u.onend=u.onerror=()=>$('#avatar').classList.remove('talk');
+    u.onstart=()=>$('#avatar').classList.add('talk','speaking');u.onend=u.onerror=()=>$('#avatar').classList.remove('talk','speaking');
     speechSynthesis.speak(u)}catch(e){}
 }
 (function initVoice(){
   if(!('speechSynthesis' in window)&&!Object.keys(AUDIO).length)return;
   const b=$('#voice');b.hidden=false;if('speechSynthesis' in window){pickVoice();try{speechSynthesis.onvoiceschanged=pickVoice}catch(e){}}
   b.onclick=()=>{voiceOn=!voiceOn;b.setAttribute('aria-pressed',voiceOn);b.textContent=voiceOn?'Voz ligada (toque para silenciar)':'Ativar voz da Dra. Íris';
-    if(voiceOn)speak(lastText,lastKey);else{try{speechSynthesis.cancel()}catch(e){}if(curAudio){curAudio.pause();curAudio=null}document.getElementById('avatar').classList.remove('talk')}};
+    if(voiceOn)speak(lastText,lastKey);else{try{speechSynthesis.cancel()}catch(e){}if(curAudio){curAudio.pause();curAudio=null}document.getElementById('avatar').classList.remove('talk','speaking')}};
 })();
 function orderRound(R,st){
   const order=[2,5,0,4,1,3];let nextI=0;
@@ -379,24 +379,27 @@ document.getElementById('close-help').onclick=()=>{help.hidden=true;install.setA
 window.addEventListener('appinstalled',()=>{deferred=null;help.hidden=true;update();status.textContent='Plantão instalado com sucesso.'});update();
 document.getElementById('replay').onclick=()=>{if(!voiceOn)voice.click();else speak(lastText,lastKey)};
 if(!('speechSynthesis' in window)&&!Object.keys(AUDIO).length){document.getElementById('replay').disabled=true;status.textContent='Voz indisponível neste navegador. As falas continuam disponíveis em texto.'}
-document.addEventListener('visibilitychange',()=>{if(document.hidden){if(curAudio)curAudio.pause();try{speechSynthesis.cancel()}catch(e){}document.getElementById('avatar').classList.remove('talk')}});
+document.addEventListener('visibilitychange',()=>{if(document.hidden){if(curAudio)curAudio.pause();try{speechSynthesis.cancel()}catch(e){}document.getElementById('avatar').classList.remove('talk','speaking')}});
 })();
 </script><script>
-// Vídeo curto da Dra. Íris falando: toca (mudo) enquanto a voz fala; a foto volta quando ela cala.
+// Vídeo curto da Dra. Íris falando: toca (mudo) só enquanto a voz realmente fala.
 (function(){
   const av=document.getElementById('avatar'),v=document.getElementById('irisVid');if(!av||!v)return;
   if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
-  let cur='';
+  let cur='',on=false;
+  function show(f){if(av.classList.contains('vid')!==f)av.classList.toggle('vid',f)}
   function sync(){
-    const talking=av.classList.contains('talk');
-    const want=av.classList.contains('think')?'talk-b.mp4':'talk-a.mp4';
+    const talking=av.classList.contains('speaking');
+    if(talking===on&&(!talking||cur===(av.classList.contains('think')?'talk-b.mp4':'talk-a.mp4')))return;
+    on=talking;
     if(talking){
-      if(cur!==want){cur=want;v.src=want;v.load()}
-      const p=v.play();if(p&&p.then)p.then(()=>av.classList.add('vid'),()=>{});
-    }else{av.classList.remove('vid');setTimeout(()=>{if(!av.classList.contains('talk'))v.pause()},250)}
+      cur=av.classList.contains('think')?'talk-b.mp4':'talk-a.mp4';
+      v.src=cur;v.currentTime=0;
+      const p=v.play();if(p&&p.then)p.then(()=>{if(on)show(true)},()=>show(false));
+    }else{show(false);setTimeout(()=>{if(!on)v.pause()},250)}
   }
   new MutationObserver(sync).observe(av,{attributes:true,attributeFilter:['class']});
-  v.addEventListener('error',()=>av.classList.remove('vid'));
+  v.addEventListener('error',()=>show(false));
 })();
 </script></body>
 </html>
