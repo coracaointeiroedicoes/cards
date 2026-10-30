@@ -146,7 +146,23 @@ body{background:#f3f7f9;color:#203744}.wrap{max-width:760px;gap:20px}.wrap>heade
 @media(max-width:540px){.guide{padding:14px;gap:14px;align-items:flex-start}.avatar{flex-basis:104px;width:104px;height:142px;border-radius:15px}.bubble{font-size:.9rem;line-height:1.6}}
 @media(max-width:350px){.guide{gap:10px}.avatar{flex-basis:84px;width:84px;height:118px}}
 @media(prefers-reduced-motion:reduce){.avatar #iris,.avatar:after{animation:none!important;transform:none!important}}
-</style><style>.avatar #iris{animation:none!important;transform:none!important;object-position:center top}.avatar{height:170px}.avatar.talk{outline:2px solid #79c7ca;outline-offset:3px}@media(max-width:540px){.avatar{height:122px}}</style></head>
+</style><style>.avatar #iris{animation:none!important;transform:none!important;object-position:center top}.avatar{height:170px}.avatar.talk{outline:2px solid #79c7ca;outline-offset:3px}@media(max-width:540px){.avatar{height:122px}}</style><style id="iris-motion">
+@keyframes ml-live{0%,100%{scale:1.07;translate:0 0;rotate:-.7deg}50%{scale:1.085;translate:1px -3px;rotate:.9deg}}
+@keyframes ml-talk{0%,100%{scale:1.08;translate:0 0;rotate:-1.3deg}50%{scale:1.095;translate:0 -4px;rotate:1.3deg}}
+@keyframes ml-think{0%,100%{scale:1.08;translate:0 0;rotate:-1deg}50%{scale:1.085;translate:-2px 0;rotate:-3.2deg}}
+@keyframes ml-joy{0%,100%{scale:1.08;translate:0 0}40%{scale:1.1;translate:0 -9px}}
+@keyframes ml-enter{from{opacity:0;scale:1;translate:-14px 6px}to{opacity:1;scale:1.07;translate:0 0}}
+@keyframes ml-bars{0%,100%{background-size:4px 30%,4px 80%,4px 50%}33%{background-size:4px 90%,4px 40%,4px 70%}66%{background-size:4px 50%,4px 100%,4px 30%}}
+.avatar #iris{transform-origin:50% 88%;animation:ml-live 5.5s ease-in-out infinite!important}
+.avatar.talk #iris,.avatar.wave #iris{animation:ml-talk .95s ease-in-out infinite!important}
+.avatar.think #iris{animation:ml-think 2.4s ease-in-out infinite!important}
+.avatar.thumb #iris{animation:ml-joy .7s ease-in-out 3!important}
+.avatar.enter #iris{animation:ml-enter .8s ease-out,ml-live 5.5s .8s ease-in-out infinite!important}
+.avatar.talk:before{content:'';position:absolute;left:8px;bottom:8px;width:22px;height:16px;border-radius:8px;background:#ffffffd9 padding-box;box-shadow:0 1px 6px #0002;z-index:2}
+.avatar.talk:after{width:auto;height:auto;background:none;border:0;box-shadow:none}
+.avatar.talk:before{background:linear-gradient(#118577,#118577) 3px 100%/4px 30% no-repeat,linear-gradient(#118577,#118577) 9px 100%/4px 80% no-repeat,linear-gradient(#118577,#118577) 15px 100%/4px 50% no-repeat,#ffffffd9;background-origin:content-box;padding:3px;box-sizing:border-box;animation:ml-bars .8s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.avatar #iris,.avatar.talk:before{animation:none!important}}
+</style></head>
 <body><a class="skip" href="#stage">Ir para o desafio</a>
 <div class="wrap">
   <header>
