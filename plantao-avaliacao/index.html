@@ -214,7 +214,7 @@ const ROUNDS=[
    ['Relacionar a pontuação à entrevista, à história e à equipe; levantar hipóteses; comunicar o necessário, com os limites, e combinar quem acompanha.',true,'Integração e devolutiva compreensível, sem expor além do necessário, e com encaminhamento claro.'],
    ['Entregar o resultado detalhado a quem pedir, para ser transparente.',false,'Comunicar só o necessário ao cuidado, respeitando o sigilo.']]}
 ,
- {steps:[0,1,2,3,4,5],type:'order',title:'Teste final · Monte o roteiro',q:'Toque nos passos na ordem em que acontecem na avaliação no hospital.',
+ {steps:[0,1,2,3,4,5],type:'order',title:'Teste final · Monte o roteiro',q:'Toque nos passos na ordem em que acontecem na avaliação no hospital. Atenção: cada erro tira 1 ponto e, no terceiro erro, o roteiro recomeça.',
   seq:['Demanda: o pedido da equipe vira pergunta clínica','Viabilidade e consentimento: estado clínico, tempo, ambiente e aceite','Planejar as fontes: fundamentais e complementares','Coletar: entrevista, observação, prontuário e testes breves','Integrar os dados e levantar hipóteses','Devolver, registrar e encaminhar']}
 ];
 const SAY={
@@ -294,7 +294,7 @@ function speak(html,key){
     if(voiceOn)speak(lastText,lastKey);else{try{speechSynthesis.cancel()}catch(e){}if(curAudio){curAudio.pause();curAudio=null}document.getElementById('avatar').classList.remove('talk','speaking')}};
 })();
 function orderRound(R,st){
-  const order=[2,5,0,4,1,3];let nextI=0;
+  const order=[2,5,0,4,1,3];let nextI=0,miss=0;
   st.innerHTML=`<div><div class="eyebrow">${R.title}</div><h2>${R.q}</h2></div>
    <div class="ord" id="slots">${R.seq.map((t,i)=>`<div class="slot" id="s${i}"><span class="n">${i+1}</span><span></span></div>`).join('')}</div>
    <div class="pool" id="pool">${order.map(i=>`<button class="pick" data-i="${i}">${R.seq[i].split(':')[0]}</button>`).join('')}</div><div id="fb"></div>`;
@@ -303,7 +303,15 @@ function orderRound(R,st){
     if(i===nextI){const sl=$('#s'+i);sl.classList.add('fill');sl.lastElementChild.textContent=R.seq[i];score+=2;setScore();b.remove();nextI++;doneSteps.add(i);track();
       say(nextI<6?'Isso! E depois?':'Roteiro completo!','ok',nextI<6?okKey():'done');
       if(nextI===6){answered=true;emit('sorted');$('#fb').innerHTML='<br><button class="cta" id="nx">Ver resultado</button>';$('#nx').onclick=next}}
-    else{b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');say('Hmm, esse ainda não é o <b>passo '+(nextI+1)+'</b>. Pense no que vem antes de planejar ou concluir.','hmm','hmm2')}
+    else{b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');miss++;
+      if(miss>=3){
+        for(let k=0;k<nextI;k++)doneSteps.delete(k);
+        score=Math.max(0,score-2*nextI-3);setScore();render();
+        say('<b>Três erros: chutar não vale!</b> O roteiro recomeçou e você perdeu pontos. Leia a ordem com calma: do pedido até a devolutiva.','hmm','hmm1');
+      }else{
+        score=Math.max(0,score-1);setScore();
+        say('Hmm, esse ainda não é o <b>passo '+(nextI+1)+'</b>. Cada erro custa 1 ponto. <b>Erro '+miss+' de 3</b>: no terceiro, o roteiro recomeça.','hmm','hmm2');
+      }}
   });
 }
 function next(){r++;render();const stage=document.getElementById("stage");stage.focus({preventScroll:true});stage.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth",block:"start"})}
