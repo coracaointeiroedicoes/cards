@@ -12,7 +12,7 @@
 <title>Plantão da Avaliação</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;600;700&display=swap">
 <style>
-html{{color-scheme:light}}body{{margin:0}}
+html{color-scheme:light}body{margin:0}
 /* Layout: uma tela de plantão, um desafio por vez, trilha de 6 passos no topo (mesma ordem do folder) */
 :root{
   --bg:#f3f6f9; --card:#ffffff; --ink:#14263d; --muted:#51647a; --line:#d5dee8;
@@ -123,7 +123,30 @@ button{font:inherit;color:inherit;cursor:pointer}
 html{color-scheme:light}body{margin:0;line-height:1.6;background:var(--bg);padding-top:28px}.wrap{max-width:760px;gap:20px}h1{font-size:clamp(2rem,6vw,3rem);margin:6px 0 0;letter-spacing:-.04em}h2{margin:8px 0 0;line-height:1.4;font-size:1.35rem;text-wrap:pretty}.card{padding:28px;border-radius:24px;box-shadow:0 12px 40px #14263d08;gap:22px}.case{border-radius:16px;padding:16px 20px}.track{gap:8px}.step{padding:10px 6px;border-radius:14px;font-size:.76rem;min-height:76px;line-height:1.4}.step b{font-size:1.15rem}.hud{padding:0 6px;font-weight:700}.score{background:var(--card);padding:5px 16px;border-radius:99px;border:1px solid var(--line)}.guide{align-items:center}.avatar{flex-basis:100px;width:100px;height:128px}.bubble{padding:16px;border-width:1px;line-height:1.6}.opt{min-height:64px;padding:18px;gap:14px;border-radius:16px;line-height:1.55}.opt .l{display:grid;place-items:center;min-width:30px;height:30px;border-radius:9px;background:var(--chip)}.cta{min-height:52px;width:100%;border-radius:14px;padding:14px 20px}.pick{min-height:48px;padding:12px 16px;border-radius:14px}.bin{padding:18px;border-radius:16px;min-height:90px}.bin h3{margin:0 0 6px}.bin small,.hint{font-size:.95rem}.voice{min-height:48px;padding:10px 16px;border-radius:14px}.voice[hidden]{display:none}.why{padding:18px;line-height:1.7;border-radius:16px}.foot{line-height:1.7;margin:0 4px}.slot{min-height:54px;padding:12px}.skip{position:absolute;left:16px;top:-100px;background:var(--card);padding:12px;z-index:10}.skip:focus{top:8px}button{touch-action:manipulation}#stage{scroll-margin-top:20px}button:focus-visible,summary:focus-visible{outline:3px solid var(--teal);outline-offset:4px}.case summary{cursor:pointer;font-weight:700;color:var(--muted)}.case p{margin:8px 0 0}
 @media(max-width:540px){body{padding:20px 16px max(28px,env(safe-area-inset-bottom));}.wrap{gap:16px}.eyebrow{font-size:.68rem;letter-spacing:.09em}.track{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.step{min-height:59px;flex-direction:row;text-align:left;justify-content:flex-start;padding:8px;gap:7px;font-size:.72rem}.step b{font-size:1rem;flex-shrink:0}.card{padding:20px 16px;border-radius:20px}h2{font-size:1.17rem}.avatar{flex-basis:68px;width:68px;height:90px}.guide{gap:10px;align-items:flex-start}.bubble{padding:12px;font-size:.92rem}.opt{padding:14px 12px;font-size:1rem;gap:10px}.voice{width:100%;justify-content:center}.case{padding:12px 16px}.foot{font-size:.8rem}.pool{gap:10px}.pick{flex-grow:1;text-align:left}.hud{font-size:.88rem}.score{font-size:1.1rem}.live:empty{display:none}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important}}
-</style></head>
+</style><style id="visual-v3">
+:root,:root[data-theme="dark"]{--bg:#edf5f3;--card:#fff;--ink:#193b3c;--muted:#526d6c;--line:#d4e4df;--navy:#154c49;--teal:#197e70;--chip:#e9f3ef;--amber-soft:#fff4df;color-scheme:light}
+body{background:radial-gradient(ellipse at top left,#d3ebe1 0,transparent 55%),#edf5f3;font-family:'Figtree','Segoe UI',sans-serif}.wrap{max-width:780px;gap:18px}.wrap>header,.wrap>div:first-child{background:#154c49;color:white;padding:30px;border-radius:26px;position:relative;overflow:hidden}.wrap>header:after{content:'APRENDER · PRATICAR · CUIDAR';display:block;font-size:.67rem;letter-spacing:.16em;margin-top:20px;color:#b7dfce}.wrap>header .eyebrow,.wrap>div:first-child .eyebrow{color:#b7dfce}h1{color:white;font-family:'Bricolage Grotesque','Segoe UI',sans-serif;font-size:clamp(2.2rem,7vw,3.5rem);max-width:540px;line-height:1.04;margin:12px 0 0}.track{background:#ffffffaa;padding:12px;border:1px solid #d4e4df;border-radius:22px}.step{background:transparent;border-radius:12px}.step.now{background:#197e70;color:white;box-shadow:0 4px 12px #197e7025}.step.now b{color:white}.case{background:#fff8e9;border:1px solid #eedeb9;border-left:4px solid #d9a74b;border-radius:18px}.case summary{color:#77613e}.hud{background:transparent;padding:0 8px}.score{background:#154c49;color:white;border:0;font-size:1rem;padding:8px 16px}.guide{background:#dceee6;padding:18px;border-radius:22px;align-items:center}.avatar{background:#bddfcd;border-radius:18px;flex-basis:90px;width:90px;height:115px}.bubble{background:transparent;border:0;padding:0 0 0 6px;font-size:1rem}.card{border:0;border-top:5px solid #197e70;box-shadow:0 14px 40px #164c4910;padding:28px;border-radius:24px}.card h2{font-size:1.4rem;line-height:1.4;color:#193b3c}.card .eyebrow{color:#197e70}.opt{background:#f8fbf9;border:1px solid #ccdfd6;padding:18px;border-radius:16px;transition:background .15s,transform .15s}.opt:hover:not(:disabled){background:#eaf6ef;transform:translateY(-2px);border-color:#197e70}.opt .l{background:white;border:1px solid #d4e4df;color:#197e70;min-width:34px;height:34px;border-radius:50%}.opt.ok{background:var(--ok-soft);border:2px solid var(--ok)}.opt.bad{background:var(--bad-soft);border:2px solid var(--bad)}.cta{background:#197e70;color:white;border-radius:14px}.voice{background:white;color:#154c49;border:1px solid #c9ddd3;justify-content:center;width:100%}.foot{text-align:center;color:#607774;padding:8px 20px}.bin{background:#f8fbf9}.pick{background:white}.why{background:#edf5f0}.slot{background:#f8fbf9}
+@media(max-width:540px){body{padding:14px 12px 32px}.wrap{gap:14px}.wrap>header,.wrap>div:first-child{padding:24px 22px;border-radius:22px}h1{font-size:2.65rem}.track{padding:8px;gap:4px}.step{min-height:56px;padding:7px;font-size:.7rem}.guide{padding:14px;gap:12px}.avatar{flex-basis:64px;width:64px;height:86px}.bubble{font-size:.92rem;line-height:1.5}.card{padding:22px 16px;border-radius:22px}.card h2{font-size:1.22rem}.opt{padding:16px 12px;align-items:center}.foot{padding:4px 8px}.case{font-size:.9rem}}
+</style><style id="future-hospital">
+:root,:root[data-theme="dark"]{--bg:#07131f;--card:#102435;--ink:#e7f5fa;--muted:#a8c2ce;--line:#294657;--navy:#71e6ed;--teal:#70e5de;--chip:#193445;--amber:#eabe72;--amber-soft:#302d26;--ok:#83edb9;--ok-soft:#123d36;--bad:#ffb0b8;--bad-soft:#422833;color-scheme:dark}
+body{background:radial-gradient(ellipse at 15% 0,#103c50 0,transparent 55%),linear-gradient(135deg,#07131f,#0b1d2b);color:var(--ink);min-height:100vh}.wrap{max-width:800px}.wrap>header,.wrap>div:first-child{background:linear-gradient(120deg,#143a4b,#102435);border:1px solid #376072;border-radius:24px;padding:30px;box-shadow:inset 0 1px #8cecf01c,0 20px 60px #0002}.wrap>header:before{content:'✚  NÚCLEO DE SIMULAÇÃO CLÍNICA';display:block;color:#83edb9;font-size:.69rem;font-weight:700;letter-spacing:.16em;margin-bottom:22px}.wrap>header:after{content:'';height:27px;width:100%;margin-top:20px;background:linear-gradient(90deg,#6ee4db77,#6ee4db);clip-path:polygon(0 48%,25% 48%,28% 25%,31% 72%,34% 48%,52% 48%,55% 48%,58% 0,61% 100%,64% 48%,100% 48%,100% 54%,64% 54%,61% 100%,58% 10%,55% 54%,34% 54%,31% 82%,28% 35%,25% 54%,0 54%);opacity:.8}.wrap>header .eyebrow,.wrap>div:first-child .eyebrow{color:#aac8d6;font-size:.7rem}h1{color:#effcff;font-size:clamp(2.3rem,7vw,3.5rem);letter-spacing:-.045em}.track{background:#0d2230;border:1px solid #294657;border-radius:18px}.step{color:#a8c2ce;background:transparent}.step b{color:#86b8ca}.step.now{background:#174958;color:#caffff;border:1px solid #63d7df;box-shadow:0 0 16px #61dfdf15}.step.now b{color:#a6ffff}.step.done{background:#123d36;color:#83edb9}.case{background:#152b37;border:1px solid #395565;border-left:3px solid #eabe72;color:#d7e6ee}.case summary{color:#efd29d}.hud{color:#aac8d6;font-size:.9rem}.score{background:#133c47;color:#a0fff0;border:1px solid #397b7a;letter-spacing:.02em}.guide{background:linear-gradient(110deg,#11333e,#122a38);border:1px solid #2f5867;border-radius:22px}.avatar{background:#b4ead2;border:2px solid #72dbd2;box-shadow:0 0 25px #62e9dd18}.bubble{color:#d9eef5}.bubble b{color:#8bf1e6}.card{background:linear-gradient(145deg,#132c3e,#102231);border:1px solid #315466;border-top:3px solid #70e5de;box-shadow:0 22px 65px #0003,inset 0 1px #ffffff08}.card h2{color:#edf9ff}.card .eyebrow{color:#7fdfdf;letter-spacing:.12em}.opt{background:#102536;border:1px solid #355264;color:#e3f1f8}.opt .l{background:#193b4c;border:1px solid #416779;color:#91efed;box-shadow:inset 0 1px #ffffff0c}.opt:hover:not(:disabled){background:#193c4d;border-color:#70e5de;box-shadow:0 0 20px #70e5de0c}.opt.ok{background:#123d36;border-color:#83edb9}.opt.bad{background:#422833;border-color:#ffb0b8}.opt:disabled{opacity:1}.voice{background:#102a39;color:#a7eeee;border:1px solid #385d70;border-radius:14px}.voice[aria-pressed="true"]{color:#a3f5cd;background:#123d36;border-color:#83edb9}.cta{background:linear-gradient(100deg,#79e7de,#a2f3ea);color:#092b32;font-weight:800;box-shadow:0 6px 24px #70e5de15}.pick{background:#183548;border-color:#3a6074;color:#ecf7fb}.pick.sel{background:#3a3427;border-color:#eabe72}.bin{background:#0e2333;border-color:#45667a;color:#e7f5fa}.bin small,.hint{color:#acc7d5}.bin.armed{background:#183e4c;border-color:#70e5de}.slot{background:#102a39;border-color:#426477;color:#deeff7}.slot.fill{background:#123d36;border-color:#83edb9}.why{background:#193747;border:1px solid #375d6f;color:#e5f2f8}.medal{color:#8cf0dc}.foot{color:#9bb7c7}.score,.voice,.pick,.cta{min-height:48px}.skip{background:#102435;color:#91efed}button:focus-visible,summary:focus-visible{outline-color:#a3fff3}
+@media(max-width:540px){.wrap>header,.wrap>div:first-child{padding:24px 20px}.wrap>header:before{font-size:.6rem;letter-spacing:.12em;margin-bottom:18px}h1{font-size:2.6rem}.guide{padding:14px}.card{padding:22px 16px}.card h2{font-size:1.2rem}.opt{min-height:72px}.step.now{box-shadow:none}}
+</style><style id="clean-future">
+:root,:root[data-theme="dark"]{--bg:#f3f7f9;--card:#fff;--ink:#203744;--muted:#607681;--line:#dce6eb;--navy:#203f50;--teal:#087f8c;--chip:#edf4f7;--amber:#b78837;--amber-soft:#faf5e9;--ok:#197654;--ok-soft:#e7f5ee;--bad:#a34353;--bad-soft:#fbeef0;color-scheme:light}
+body{background:#f3f7f9;color:#203744}.wrap{max-width:760px;gap:20px}.wrap>header,.wrap>div:first-child{background:transparent;border:0;border-radius:0;padding:20px 4px 16px;box-shadow:none}.wrap>header:before{content:'✚  SIMULAÇÃO CLÍNICA';color:#087f8c;font-size:.66rem;letter-spacing:.18em;margin-bottom:20px}.wrap>header:after{display:none}.wrap>header .eyebrow,.wrap>div:first-child .eyebrow{color:#6a7e8a;font-size:.66rem;letter-spacing:.12em}h1{color:#203744;font-size:clamp(2.2rem,7vw,3.3rem);font-weight:600;letter-spacing:-.05em;line-height:1.08;margin:10px 0 0}.track{background:transparent;border:0;border-top:1px solid #dce6eb;border-bottom:1px solid #dce6eb;border-radius:0;padding:14px 0;gap:8px}.step{background:transparent;border:1px solid transparent;color:#71838d;border-radius:10px;box-shadow:none;font-size:.72rem}.step b{color:#8297a1;font-size:1rem}.step.now{background:#e4f3f5;border:1px solid #c1e4e8;color:#086b77;box-shadow:none}.step.now b{color:#086b77}.step.done{background:#e7f5ee;color:#197654}.case{background:#fff;border:1px solid #e0e8ed;border-left:1px solid #e0e8ed;border-radius:14px;padding:14px 18px;color:#526b78;font-size:.92rem}.case summary{color:#526b78;font-size:.86rem;font-weight:600}.hud{color:#607681;padding:0 3px;font-size:.84rem}.score{background:#e8f2f5;color:#285669;border:0;border-radius:10px;padding:7px 12px;min-height:0;font-size:.9rem;box-shadow:none}.guide{background:#eaf3f6;border:0;border-radius:16px;padding:16px;gap:16px;box-shadow:none}.avatar{background:#d5e8e1;border:0;border-radius:14px;box-shadow:none;flex-basis:72px;width:72px;height:94px}.bubble{background:transparent;border:0;color:#486370;padding:0;font-size:.94rem;line-height:1.6}.bubble b{color:#087f8c}.voice{background:transparent;border:1px solid #d5e2e9;color:#527180;border-radius:12px;box-shadow:none;font-size:.85rem;min-height:44px}.voice[aria-pressed="true"]{background:#e7f5ee;color:#197654;border-color:#b9ddcc}.card{background:#fff;border:1px solid #e0e8ed;border-top:1px solid #e0e8ed;border-radius:20px;padding:30px;gap:24px;box-shadow:0 8px 32px #28485805}.card .eyebrow{color:#087f8c;font-size:.66rem;letter-spacing:.14em}.card h2{color:#203744;font-size:1.35rem;font-weight:600;line-height:1.45;letter-spacing:-.02em}.opts{gap:12px}.opt{background:#fff;border:1px solid #dce6eb;border-radius:12px;padding:18px;color:#324e5d;box-shadow:none;line-height:1.55}.opt .l{background:#f0f6f8;border:0;color:#567988;border-radius:9px;min-width:32px;height:32px;box-shadow:none;font-size:.9rem}.opt:hover:not(:disabled){background:#f6fbfc;border-color:#76b8c3;transform:none;box-shadow:none}.opt.ok{background:#e7f5ee;border:1px solid #83bfa4}.opt.bad{background:#fbeef0;border:1px solid #d5a2aa}.cta{background:#147e8b;color:white;box-shadow:none;border-radius:12px;font-weight:600}.pick{background:#f7fafb;border:1px solid #d5e3e9;color:#365664;border-radius:10px}.pick.sel{background:#e4f3f5;border-color:#61aeb9}.bin{background:#fafcfd;border-color:#c6d9e2;color:#365664;border-radius:12px}.bin small,.hint{color:#647e8b}.bin.armed{background:#eef8fa;border-color:#70b6c0}.slot{background:#f8fbfc;border-color:#d1e1e8;color:#365664}.slot.fill{background:#e7f5ee;border-color:#83bfa4}.why{background:#eff6f8;border:0;color:#3b5968;border-radius:12px}.medal{color:#087f8c}.foot{color:#7a8c96;font-size:.76rem;line-height:1.7;padding:2px 18px}.skip{background:white;color:#087f8c}button:focus-visible,summary:focus-visible{outline-color:#087f8c}
+@media(max-width:540px){body{padding:18px 14px 32px}.wrap{gap:16px}.wrap>header,.wrap>div:first-child{padding:12px 3px 8px}.wrap>header:before{margin-bottom:16px;font-size:.61rem}h1{font-size:2.5rem}.track{padding:10px 0;gap:4px}.step{min-height:52px;font-size:.68rem;padding:6px}.guide{padding:14px;gap:12px}.avatar{flex-basis:56px;width:56px;height:74px}.bubble{font-size:.9rem}.card{padding:24px 17px;border-radius:18px}.card h2{font-size:1.18rem}.opt{padding:15px 12px;min-height:68px;font-size:.97rem}.case{padding:12px 14px}.foot{padding:0 8px}}
+</style><style>.app-tools{display:flex;gap:10px;flex-wrap:wrap}.app-tools button{flex:1;min-height:46px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--teal);padding:10px;font:inherit;font-size:.88rem;cursor:pointer}.install-help{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;color:var(--ink);font-size:.92rem}.install-help h2{font-size:1.1rem;margin:0 0 12px}.install-help p{margin:10px 0}.install-help[hidden]{display:none}.app-status{font-size:.8rem;color:var(--muted);margin:0}.voice[hidden]{display:none}</style><style id="iris-image">
+.guide{align-items:center;gap:22px;padding:20px}.avatar{position:relative;flex:0 0 152px;width:152px;height:190px;border-radius:20px;background:#b6d6bb;border:1px solid #d5e3df;overflow:hidden;box-shadow:none}.avatar #iris{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 20%;transform-origin:50% 85%;animation:iris-breathe 5s ease-in-out infinite;will-change:transform}.avatar.talk #iris{animation:iris-speaking 1.2s ease-in-out infinite}.avatar.thumb #iris{animation:iris-celebrate .75s ease-in-out 2}.avatar.think #iris{animation:iris-thinking 2.5s ease-in-out infinite}.avatar.enter #iris{animation:iris-entrance .8s ease-out,iris-breathe 5s .8s ease-in-out infinite}.avatar.wave #iris{animation:iris-speaking 1.5s ease-in-out infinite}.avatar:after{content:'';position:absolute;bottom:10px;right:10px;width:9px;height:9px;background:#118577;border:2px solid #fff;border-radius:50%;box-shadow:0 1px 6px #0002}.avatar.talk:after{animation:iris-indicator 1s ease-in-out infinite}.bubble{flex:1;min-width:0}
+@keyframes iris-breathe{0%,100%{transform:scale(1.025) translateY(0)}50%{transform:scale(1.045) translateY(-2px)}}
+@keyframes iris-speaking{0%,100%{transform:scale(1.04) rotate(-.6deg)}50%{transform:scale(1.055) translateY(-3px) rotate(.6deg)}}
+@keyframes iris-thinking{0%,100%{transform:scale(1.035) rotate(0)}50%{transform:scale(1.045) rotate(-1.7deg)}}
+@keyframes iris-celebrate{0%,100%{transform:scale(1.03)}50%{transform:translateY(-5px) scale(1.06)}}
+@keyframes iris-entrance{from{opacity:0;transform:translateY(8px) scale(.96)}to{opacity:1;transform:scale(1.025)}}
+@keyframes iris-indicator{50%{box-shadow:0 0 0 4px #11857733}}
+@media(max-width:540px){.guide{padding:14px;gap:14px;align-items:flex-start}.avatar{flex-basis:104px;width:104px;height:142px;border-radius:15px}.bubble{font-size:.9rem;line-height:1.6}}
+@media(max-width:350px){.guide{gap:10px}.avatar{flex-basis:84px;width:84px;height:118px}}
+@media(prefers-reduced-motion:reduce){.avatar #iris,.avatar:after{animation:none!important;transform:none!important}}
+</style><style>.avatar #iris{animation:none!important;transform:none!important;object-position:center top}.avatar{height:170px}.avatar.talk{outline:2px solid #79c7ca;outline-offset:3px}@media(max-width:540px){.avatar{height:122px}}</style></head>
 <body><a class="skip" href="#stage">Ir para o desafio</a>
 <div class="wrap">
   <header>
@@ -133,35 +156,7 @@ html{color-scheme:light}body{margin:0;line-height:1.6;background:var(--bg);paddi
   <div class="track" id="track" aria-label="Seis passos da avaliação no hospital"></div>
   <details class="case" open><summary>Situação fictícia · leia o caso</summary><p>Uma paciente hospitalizada demonstra medo do tratamento e participa pouco das conversas com a equipe. A família pede que a(o) psicóloga(o) a convença a aceitar os procedimentos.</p></details>
   <div class="hud"><span id="round">Desafio 1 de 4</span><span class="live" id="live"></span><span class="score" id="score">0 pts</span></div>
-  <div class="guide"><div class="avatar" id="avatar"><svg id="iris" viewBox="-5 0 235 300" role="img" aria-label="Dra. Íris, psicóloga virtual">
-<ellipse cx="100" cy="291" rx="54" ry="7" fill="#1f3a5f" opacity=".16"/>
-<g id="fig">
- <path d="M80 200 L75 276 L97 276 L101 212Z" fill="#263a5a"/><path d="M120 200 L125 276 L103 276 L99 212Z" fill="#263a5a"/>
- <path d="M70 276 H98 V284 Q98 290 90 290 H74 Q66 290 68 284Z" fill="#fff" stroke="#cfd8dc" stroke-width="1.2"/><path d="M130 276 H102 V284 Q102 290 110 290 H126 Q134 290 132 284Z" fill="#fff" stroke="#cfd8dc" stroke-width="1.2"/>
- <rect x="86" y="112" width="28" height="104" fill="#1b8a91"/><path d="M88 112 L100 130 L112 112 L106 108 L100 114 L94 108Z" fill="#14727a"/>
- <g id="aL" ><g id="aLu"><line x1="68" y1="126" x2="56" y2="168" stroke="#cfd9de" stroke-width="19" stroke-linecap="round"/><line x1="68" y1="126" x2="56" y2="168" stroke="#f7f9fa" stroke-width="17" stroke-linecap="round"/>
-  <g id="aLf"><line x1="56" y1="168" x2="58" y2="206" stroke="#cfd9de" stroke-width="18" stroke-linecap="round"/><line x1="56" y1="168" x2="58" y2="206" stroke="#f7f9fa" stroke-width="16" stroke-linecap="round"/><rect x="50" y="202" width="16" height="6" rx="3" fill="#1b8a91"/><ellipse cx="58" cy="216" rx="7" ry="8.5" fill="#c98a60"/></g></g></g>
- <path d="M64 126 Q68 112 86 112 L99 132 L97 228 L58 226Z" fill="#f7f9fa" stroke="#d3dde2" stroke-width="1.2"/>
- <path d="M136 126 Q132 112 114 112 L101 132 L103 228 L142 226Z" fill="#f7f9fa" stroke="#d3dde2" stroke-width="1.2"/>
- <rect x="112" y="150" width="14" height="7" rx="1.5" fill="#8d979c"/><circle cx="92" cy="170" r="1.8" fill="#dfe6ea"/><circle cx="108" cy="170" r="1.8" fill="#dfe6ea"/><circle cx="92" cy="192" r="1.8" fill="#dfe6ea"/><circle cx="108" cy="192" r="1.8" fill="#dfe6ea"/>
- <g id="aR"><g id="aRu"><line x1="132" y1="126" x2="144" y2="168" stroke="#cfd9de" stroke-width="19" stroke-linecap="round"/><line x1="132" y1="126" x2="144" y2="168" stroke="#f7f9fa" stroke-width="17" stroke-linecap="round"/>
-  <g id="aRf"><line x1="144" y1="168" x2="142" y2="206" stroke="#cfd9de" stroke-width="18" stroke-linecap="round"/><line x1="144" y1="168" x2="142" y2="206" stroke="#f7f9fa" stroke-width="16" stroke-linecap="round"/><rect x="134" y="202" width="16" height="6" rx="3" fill="#1b8a91"/><ellipse cx="142" cy="216" rx="7" ry="8.5" fill="#c98a60"/><rect id="thumb" x="139" y="203" width="6" height="15" rx="3" fill="#c98a60"/></g></g></g>
- <rect x="92" y="98" width="16" height="20" rx="6" fill="#b9805c"/>
- <g id="head">
-  <path d="M68 60 Q66 36 100 32 Q134 36 132 60 Q140 84 134 108 Q128 124 118 114 L118 92 L82 92 L82 114 Q72 124 66 108 Q60 84 68 60Z" fill="#4a2c22"/>
-  <circle cx="73" cy="76" r="5" fill="#c98a60"/><circle cx="127" cy="76" r="5" fill="#c98a60"/>
-  <ellipse cx="100" cy="74" rx="27" ry="31" fill="#c98a60"/>
-  <path d="M71 66 Q74 40 102 41 Q128 42 129 66 Q118 52 100 53 Q82 54 71 66Z" fill="#4a2c22"/>
-  <path d="M82 60 Q89 56 95 60" fill="none" stroke="#3a2118" stroke-width="2" stroke-linecap="round"/><path d="M105 60 Q111 56 118 60" fill="none" stroke="#3a2118" stroke-width="2" stroke-linecap="round"/>
-  <g id="eyes"><ellipse cx="89" cy="72" rx="5.4" ry="6" fill="#fff"/><circle cx="89.6" cy="72.5" r="3.7" fill="#5a3526"/><circle cx="89.8" cy="72.6" r="1.8" fill="#14100e"/><circle cx="91" cy="70.8" r="1.1" fill="#fff"/>
-   <ellipse cx="111" cy="72" rx="5.4" ry="6" fill="#fff"/><circle cx="111.6" cy="72.5" r="3.7" fill="#5a3526"/><circle cx="111.8" cy="72.6" r="1.8" fill="#14100e"/><circle cx="113" cy="70.8" r="1.1" fill="#fff"/></g>
-  <circle cx="89" cy="72" r="10.5" fill="none" stroke="#c9a66b" stroke-width="1.6"/><circle cx="111" cy="72" r="10.5" fill="none" stroke="#c9a66b" stroke-width="1.6"/><path d="M99.5 71 Q100 69.5 100.5 71" fill="none" stroke="#c9a66b" stroke-width="1.6"/>
-  <path d="M99 78 Q100 82 102 82" fill="none" stroke="#a9693f" stroke-width="1.6" stroke-linecap="round"/>
-  <circle cx="82" cy="85" r="4.2" fill="#e8907b" opacity=".45"/><circle cx="118" cy="85" r="4.2" fill="#e8907b" opacity=".45"/>
-  <path id="smile" d="M91 88 Q100 97 109 88" fill="none" stroke="#8a3a30" stroke-width="2" stroke-linecap="round"/>
-  <ellipse id="mopen" cx="100" cy="91" rx="6.2" ry="4.4" fill="#7a2e2a"/>
- </g>
-</g></svg></div><div class="bubble" id="say"></div></div>
+  <div class="guide"><div class="avatar" id="avatar"><img id="iris" src="dra-iris-realista.png" alt="Dra. Íris, personagem de jaleco branco e óculos, sorrindo" width="1254" height="1254"></div><div class="bubble" id="say"></div></div>
 <button class="voice" id="voice" type="button" aria-pressed="false" hidden>Ativar voz da Dra. Íris</button>
 <main tabindex="-1" id="stage" class="card" aria-live="polite"></main>
     <p class="foot">Situação criada pelo grupo para exercício. Base: Resolução CFP nº 31/2022, Cartilha de Avaliação Psicológica (CFP, 2022) e folder do grupo. UNAMA · Avaliação Psicológica · 2026.</p>
@@ -246,7 +241,7 @@ function say(t,mood,key){
   a.classList.add(mood==='ok'?'thumb':mood==='hmm'?'think':'wave');if(voiceOn||!AUDIO[key])a.classList.add('talk');
   clearTimeout(window._sayT);window._sayT=setTimeout(()=>{a.classList.remove('wave','thumb','think');if(!voiceOn)a.classList.remove('talk')},3200);
 }
-(function life(){
+(function life(){if(document.getElementById('iris').tagName.toLowerCase()!=='svg')return;
   const av=$('#avatar'),mo=$('#mopen'),ey=$('#eyes');
   setInterval(()=>{const t=av.classList.contains('talk');mo.style.transform='scaleY('+(t?(0.2+Math.random()*0.8):0.04)+')'},110);
   (function blink(){ey.classList.add('blink');setTimeout(()=>ey.classList.remove('blink'),140);setTimeout(blink,2600+Math.random()*2600)})();
@@ -275,7 +270,7 @@ function speak(html,key){
   if(!('speechSynthesis' in window)&&!Object.keys(AUDIO).length)return;
   const b=$('#voice');b.hidden=false;if('speechSynthesis' in window){pickVoice();try{speechSynthesis.onvoiceschanged=pickVoice}catch(e){}}
   b.onclick=()=>{voiceOn=!voiceOn;b.setAttribute('aria-pressed',voiceOn);b.textContent=voiceOn?'Voz ligada (toque para silenciar)':'Ativar voz da Dra. Íris';
-    if(voiceOn)speak(lastText,lastKey);else{try{speechSynthesis.cancel()}catch(e){}}};
+    if(voiceOn)speak(lastText,lastKey);else{try{speechSynthesis.cancel()}catch(e){}if(curAudio){curAudio.pause();curAudio=null}document.getElementById('avatar').classList.remove('talk')}};
 })();
 function orderRound(R,st){
   const order=[2,5,0,4,1,3];let nextI=0;
@@ -294,7 +289,7 @@ function next(){r++;render();const stage=document.getElementById("stage");stage.
 function emit(choice){try{room&&room.emit('answer',{r,c:choice,u:me})}catch(e){}}
 function pickMC(i){
   if(answered)return;answered=true;const R=ROUNDS[r],o=R.opts[i];
-  const good=o[1];if(good){score+=10;doneSteps.add(...R.steps.slice(0,1));R.steps.forEach(s=>doneSteps.add(s))}
+  const good=o[1];R.steps.forEach(s=>doneSteps.add(s));if(good){score+=10}
   setScore();emit(i);say(good?'<b>Muito bem!</b> '+o[2]:'Quase! '+R.opts.find(x=>x[1])[2],good?'ok':'hmm',good?okKey():'hmm1');
   document.querySelectorAll('.opt').forEach((b,k)=>{b.disabled=true;if(R.opts[k][1])b.classList.add('ok');else if(k===i)b.classList.add('bad')});
   showTally();
@@ -324,7 +319,7 @@ function dropSort(b){
 }
 function final(){
   say('Plantão encerrado! Você passou por todos os passos. Revise o roteiro abaixo e leve para a prática.','ok','final');track(true);$('#round').textContent='Fim do plantão';$('#live').textContent='';
-  const max=10*3+16+12;const pct=score/max;
+  const max=ROUNDS.reduce((n,x)=>n+(x.type==='mc'?10:x.type==='order'?x.seq.length*2:x.cards.length*2),0);const pct=score/max;
   const medal=pct>=.85?'Plantonista de referência':pct>=.6?'Boa leitura clínica':'Vale revisar o roteiro';
   $('#stage').innerHTML=`<div class="eyebrow">Resultado</div><div class="medal">${medal}</div><div>Você fez <b>${score}</b> de ${max} pontos.</div>
   <div class="final"><h2>O roteiro, em seis passos</h2><ol>
@@ -343,6 +338,34 @@ render();setScore();
 }catch(e){}})();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http')){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))}
 </script>
-</body>
+<script>
+(()=>{
+const voice=document.getElementById('voice');
+const tools=document.createElement('div');tools.className='app-tools';
+tools.innerHTML='<button type="button" id="replay">Ouvir novamente</button><button type="button" id="install" aria-expanded="false" aria-controls="install-help">Instalar no celular</button>';
+voice.after(tools);
+const help=document.createElement('section');help.id='install-help';help.className='install-help';help.hidden=true;
+help.innerHTML='<h2>Leve o Plantão com você</h2><p id="install-context"></p><p><b>Android:</b> abra o endereço publicado no Chrome. Use o menu ⋮ e escolha “Instalar aplicativo” ou “Adicionar à tela inicial”.</p><p><b>iPhone:</b> abra o endereço publicado no Safari, toque em Compartilhar e em “Adicionar à Tela de Início”.</p><p>Depois de instalar, abra o app com internet uma vez para guardar os arquivos. A voz sintetizada pode depender das vozes disponíveis no aparelho.</p><button type="button" class="cta" id="close-help">Entendi</button>';
+tools.after(help);
+const status=document.createElement('p');status.className='app-status';status.setAttribute('role','status');help.after(status);
+const install=document.getElementById('install');let deferred=null;
+function standalone(){return matchMedia('(display-mode: standalone)').matches||navigator.standalone===true}
+function update(){install.textContent=standalone()?'App instalado':'Instalar no celular';install.disabled=standalone()}
+function guide(){help.hidden=false;install.setAttribute('aria-expanded','true');document.getElementById('install-context').textContent=location.protocol==='file:'?'Esta é uma prévia local. Para instalar, a versão precisa estar publicada em um endereço HTTPS.':'Se a instalação automática não aparecer, siga os passos do seu celular abaixo.';help.scrollIntoView({block:'nearest',behavior:'auto'})}
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e;update()});
+install.onclick=async()=>{if(!deferred){guide();return}const prompt=deferred;deferred=null;try{await prompt.prompt();const result=await prompt.userChoice;if(result.outcome!=='accepted')guide()}catch(e){guide()}};
+document.getElementById('close-help').onclick=()=>{help.hidden=true;install.setAttribute('aria-expanded','false');install.focus()};
+window.addEventListener('appinstalled',()=>{deferred=null;help.hidden=true;update();status.textContent='Plantão instalado com sucesso.'});update();
+document.getElementById('replay').onclick=()=>{if(!voiceOn)voice.click();else speak(lastText,lastKey)};
+if(!('speechSynthesis' in window)&&!Object.keys(AUDIO).length){document.getElementById('replay').disabled=true;status.textContent='Voz indisponível neste navegador. As falas continuam disponíveis em texto.'}
+document.addEventListener('visibilitychange',()=>{if(document.hidden){if(curAudio)curAudio.pause();try{speechSynthesis.cancel()}catch(e){}document.getElementById('avatar').classList.remove('talk')}});
+})();
+</script></body>
 </html>
+
+
+
+
+
+
 
