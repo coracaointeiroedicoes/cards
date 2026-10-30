@@ -162,6 +162,11 @@ body{background:#f3f7f9;color:#203744}.wrap{max-width:760px;gap:20px}.wrap>heade
 .avatar.talk:after{width:auto;height:auto;background:none;border:0;box-shadow:none}
 .avatar.talk:before{background:linear-gradient(#118577,#118577) 3px 100%/4px 30% no-repeat,linear-gradient(#118577,#118577) 9px 100%/4px 80% no-repeat,linear-gradient(#118577,#118577) 15px 100%/4px 50% no-repeat,#ffffffd9;background-origin:content-box;padding:3px;box-sizing:border-box;animation:ml-bars .8s ease-in-out infinite}
 @media(prefers-reduced-motion:reduce){.avatar #iris,.avatar.talk:before{animation:none!important}}
+</style><style id="iris-video">
+.avatar #irisVid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%;opacity:0;transition:opacity .18s;pointer-events:none;z-index:1}
+.avatar.vid #irisVid{opacity:1}
+.avatar.vid:before{z-index:2}
+@media(prefers-reduced-motion:reduce){.avatar #irisVid{display:none}}
 </style></head>
 <body><a class="skip" href="#stage">Ir para o desafio</a>
 <div class="wrap">
@@ -172,7 +177,7 @@ body{background:#f3f7f9;color:#203744}.wrap{max-width:760px;gap:20px}.wrap>heade
   <div class="track" id="track" aria-label="Seis passos da avaliação no hospital"></div>
   <details class="case" open><summary>Situação fictícia · leia o caso</summary><p>Uma paciente hospitalizada demonstra medo do tratamento e participa pouco das conversas com a equipe. A família pede que a(o) psicóloga(o) a convença a aceitar os procedimentos.</p></details>
   <div class="hud"><span id="round">Desafio 1 de 4</span><span class="live" id="live"></span><span class="score" id="score">0 pts</span></div>
-  <div class="guide"><div class="avatar" id="avatar"><img id="iris" src="dra-iris-realista.png" alt="Dra. Íris, personagem de jaleco branco e óculos, sorrindo" width="1254" height="1254"></div><div class="bubble" id="say"></div></div>
+  <div class="guide"><div class="avatar" id="avatar"><img id="iris" src="dra-iris-realista.png" alt="Dra. Íris, personagem de jaleco branco e óculos, sorrindo" width="1254" height="1254"><video id="irisVid" muted playsinline loop preload="auto" aria-hidden="true" tabindex="-1"></video></div><div class="bubble" id="say"></div></div>
 <button class="voice" id="voice" type="button" aria-pressed="false" hidden>Ativar voz da Dra. Íris</button>
 <main tabindex="-1" id="stage" class="card" aria-live="polite"></main>
     <p class="foot">Situação criada pelo grupo para exercício. Base: Resolução CFP nº 31/2022, Cartilha de Avaliação Psicológica (CFP, 2022) e folder do grupo. UNAMA · Avaliação Psicológica · 2026.</p>
@@ -375,6 +380,23 @@ window.addEventListener('appinstalled',()=>{deferred=null;help.hidden=true;updat
 document.getElementById('replay').onclick=()=>{if(!voiceOn)voice.click();else speak(lastText,lastKey)};
 if(!('speechSynthesis' in window)&&!Object.keys(AUDIO).length){document.getElementById('replay').disabled=true;status.textContent='Voz indisponível neste navegador. As falas continuam disponíveis em texto.'}
 document.addEventListener('visibilitychange',()=>{if(document.hidden){if(curAudio)curAudio.pause();try{speechSynthesis.cancel()}catch(e){}document.getElementById('avatar').classList.remove('talk')}});
+})();
+</script><script>
+// Vídeo curto da Dra. Íris falando: toca (mudo) enquanto a voz fala; a foto volta quando ela cala.
+(function(){
+  const av=document.getElementById('avatar'),v=document.getElementById('irisVid');if(!av||!v)return;
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  let cur='';
+  function sync(){
+    const talking=av.classList.contains('talk');
+    const want=av.classList.contains('think')?'talk-b.mp4':'talk-a.mp4';
+    if(talking){
+      if(cur!==want){cur=want;v.src=want;v.load()}
+      const p=v.play();if(p&&p.then)p.then(()=>av.classList.add('vid'),()=>{});
+    }else{av.classList.remove('vid');setTimeout(()=>{if(!av.classList.contains('talk'))v.pause()},250)}
+  }
+  new MutationObserver(sync).observe(av,{attributes:true,attributeFilter:['class']});
+  v.addEventListener('error',()=>av.classList.remove('vid'));
 })();
 </script></body>
 </html>
