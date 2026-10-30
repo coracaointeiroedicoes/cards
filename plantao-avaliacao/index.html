@@ -119,15 +119,19 @@ button{font:inherit;color:inherit;cursor:pointer}
 .foot{font-size:.78rem;color:var(--muted)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
-</head>
-<body>
+<style id="mobile-refresh">
+html{color-scheme:light}body{margin:0;line-height:1.6;background:var(--bg);padding-top:28px}.wrap{max-width:760px;gap:20px}h1{font-size:clamp(2rem,6vw,3rem);margin:6px 0 0;letter-spacing:-.04em}h2{margin:8px 0 0;line-height:1.4;font-size:1.35rem;text-wrap:pretty}.card{padding:28px;border-radius:24px;box-shadow:0 12px 40px #14263d08;gap:22px}.case{border-radius:16px;padding:16px 20px}.track{gap:8px}.step{padding:10px 6px;border-radius:14px;font-size:.76rem;min-height:76px;line-height:1.4}.step b{font-size:1.15rem}.hud{padding:0 6px;font-weight:700}.score{background:var(--card);padding:5px 16px;border-radius:99px;border:1px solid var(--line)}.guide{align-items:center}.avatar{flex-basis:100px;width:100px;height:128px}.bubble{padding:16px;border-width:1px;line-height:1.6}.opt{min-height:64px;padding:18px;gap:14px;border-radius:16px;line-height:1.55}.opt .l{display:grid;place-items:center;min-width:30px;height:30px;border-radius:9px;background:var(--chip)}.cta{min-height:52px;width:100%;border-radius:14px;padding:14px 20px}.pick{min-height:48px;padding:12px 16px;border-radius:14px}.bin{padding:18px;border-radius:16px;min-height:90px}.bin h3{margin:0 0 6px}.bin small,.hint{font-size:.95rem}.voice{min-height:48px;padding:10px 16px;border-radius:14px}.voice[hidden]{display:none}.why{padding:18px;line-height:1.7;border-radius:16px}.foot{line-height:1.7;margin:0 4px}.slot{min-height:54px;padding:12px}.skip{position:absolute;left:16px;top:-100px;background:var(--card);padding:12px;z-index:10}.skip:focus{top:8px}button{touch-action:manipulation}#stage{scroll-margin-top:20px}button:focus-visible,summary:focus-visible{outline:3px solid var(--teal);outline-offset:4px}.case summary{cursor:pointer;font-weight:700;color:var(--muted)}.case p{margin:8px 0 0}
+@media(max-width:540px){body{padding:20px 16px max(28px,env(safe-area-inset-bottom));}.wrap{gap:16px}.eyebrow{font-size:.68rem;letter-spacing:.09em}.track{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.step{min-height:59px;flex-direction:row;text-align:left;justify-content:flex-start;padding:8px;gap:7px;font-size:.72rem}.step b{font-size:1rem;flex-shrink:0}.card{padding:20px 16px;border-radius:20px}h2{font-size:1.17rem}.avatar{flex-basis:68px;width:68px;height:90px}.guide{gap:10px;align-items:flex-start}.bubble{padding:12px;font-size:.92rem}.opt{padding:14px 12px;font-size:1rem;gap:10px}.voice{width:100%;justify-content:center}.case{padding:12px 16px}.foot{font-size:.8rem}.pool{gap:10px}.pick{flex-grow:1;text-align:left}.hud{font-size:.88rem}.score{font-size:1.1rem}.live:empty{display:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important}}
+</style></head>
+<body><a class="skip" href="#stage">Ir para o desafio</a>
 <div class="wrap">
   <header>
     <div class="eyebrow">Seminário · Psicologia Hospitalar</div>
     <h1>Plantão da Avaliação</h1>
   </header>
   <div class="track" id="track" aria-label="Seis passos da avaliação no hospital"></div>
-  <div class="case"><span class="tag">Situação fictícia</span>Uma paciente hospitalizada demonstra medo do tratamento e participa pouco das conversas com a equipe. A família pede que a(o) psicóloga(o) a convença a aceitar os procedimentos.</div>
+  <details class="case" open><summary>Situação fictícia · leia o caso</summary><p>Uma paciente hospitalizada demonstra medo do tratamento e participa pouco das conversas com a equipe. A família pede que a(o) psicóloga(o) a convença a aceitar os procedimentos.</p></details>
   <div class="hud"><span id="round">Desafio 1 de 4</span><span class="live" id="live"></span><span class="score" id="score">0 pts</span></div>
   <div class="guide"><div class="avatar" id="avatar"><svg id="iris" viewBox="-5 0 235 300" role="img" aria-label="Dra. Íris, psicóloga virtual">
 <ellipse cx="100" cy="291" rx="54" ry="7" fill="#1f3a5f" opacity=".16"/>
@@ -159,7 +163,7 @@ button{font:inherit;color:inherit;cursor:pointer}
  </g>
 </g></svg></div><div class="bubble" id="say"></div></div>
 <button class="voice" id="voice" type="button" aria-pressed="false" hidden>Ativar voz da Dra. Íris</button>
-<main id="stage" class="card" aria-live="polite"></main>
+<main tabindex="-1" id="stage" class="card" aria-live="polite"></main>
     <p class="foot">Situação criada pelo grupo para exercício. Base: Resolução CFP nº 31/2022, Cartilha de Avaliação Psicológica (CFP, 2022) e folder do grupo. UNAMA · Avaliação Psicológica · 2026.</p>
 </div>
 
@@ -286,7 +290,7 @@ function orderRound(R,st){
     else{b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');say('Hmm, esse ainda não é o <b>passo '+(nextI+1)+'</b>. Pense no que vem antes de planejar ou concluir.','hmm','hmm2')}
   });
 }
-function next(){r++;render()}
+function next(){r++;render();const stage=document.getElementById("stage");stage.focus({preventScroll:true});stage.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth",block:"start"})}
 function emit(choice){try{room&&room.emit('answer',{r,c:choice,u:me})}catch(e){}}
 function pickMC(i){
   if(answered)return;answered=true;const R=ROUNDS[r],o=R.opts[i];
@@ -341,3 +345,4 @@ if('serviceWorker' in navigator&&location.protocol.startsWith('http')){window.ad
 </script>
 </body>
 </html>
+
