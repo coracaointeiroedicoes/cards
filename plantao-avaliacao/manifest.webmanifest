@@ -1,6 +1,6 @@
 {
-  "name": "Plantão da Avaliação",
-  "short_name": "Plantão",
+  "name": "Psico Plantão",
+  "short_name": "Psico Plantão",
   "description": "Jogo para praticar o passo a passo da avaliação psicológica no hospital.",
   "start_url": "./",
   "scope": "./",
