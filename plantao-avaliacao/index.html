@@ -209,14 +209,14 @@ const ROUNDS=[
    ['Teste não avaliado ou não aprovado no SATEPSI',2,'Não serve nem como fonte complementar.'],
    ['Concluir usando só fontes complementares',2,'Concluir só com elas é falta ética.']],
   bins:[['Fundamentais','O que sustenta a conclusão'],['Complementares','O que contextualiza'],['Não permitido','Nem como apoio']]},
- {steps:[2,3],sk:null,type:'mc',title:'Passos 3 e 4 · Instrumento 1: RAVLT',say:'Agora vamos escolher instrumentos. O primeiro é o <b>RAVLT</b>, o Teste de Aprendizagem Auditivo-Verbal de Rey, que avalia memória episódica verbal.',
+ {steps:[2,3],sk:null,ak:'ravlt',type:'mc',title:'Passos 3 e 4 · Instrumento 1: RAVLT',say:'Agora vamos escolher instrumentos. O primeiro é o <b>RAVLT</b>, o Teste de Aprendizagem Auditivo-Verbal de Rey, que avalia memória episódica verbal.',
   q:'A equipe quer saber como está a memória da paciente após o AVC. O RAVLT leva de 30 a 45 minutos e é de uso restrito ao psicólogo. Quando ele faz sentido na internação?',
   opts:[
    ['Sempre, porque é o teste mais completo e deve entrar em toda internação.',false,'Completo não significa adequado. Duração, cansaço e tempo de internação pesam na escolha.'],
    ['Quando a demanda é memória verbal e a paciente tolera a aplicação (ou ela pode ser dividida). Ele avalia aprendizagem, evocação imediata e tardia e reconhecimento.',true,'Escolha pela demanda e pela viabilidade. A evocação tardia pede um intervalo de cerca de 20 minutos.'],
    ['Quando qualquer profissional da equipe quiser aplicar, pois é de uso livre.',false,'É de uso restrito ao psicólogo. Consulte o SATEPSI para a situação atual do teste.'],
    ['Só em internação curta, para economizar tempo.',false,'Internação curta e paciente cansada são justamente os casos em que ele pode não caber.']]},
- {steps:[2,3],sk:null,type:'mc',title:'Passos 3 e 4 · Instrumento 2: Teste do Relógio',say:'O segundo instrumento é o <b>Teste do Desenho do Relógio</b>. Ele é breve e simples, e ajuda quando o tempo na internação é curto.',
+ {steps:[2,3],sk:null,ak:'relogio',type:'mc',title:'Passos 3 e 4 · Instrumento 2: Teste do Relógio',say:'O segundo instrumento é o <b>Teste do Desenho do Relógio</b>. Ele é breve e simples, e ajuda quando o tempo na internação é curto.',
   q:'A internação é curta e a paciente se cansa fácil. Há tempo para uma única tentativa de rastreio cognitivo à beira do leito. Para que serve o Teste do Desenho do Relógio, que leva de 5 a 10 minutos?',
   opts:[
    ['Rastrear dificuldades cognitivas de forma rápida, com papel e lápis, e indicar se vale aprofundar a avaliação. Ele não fecha diagnóstico sozinho.',true,'Por ser breve e simples, cabe no leito. O resultado orienta a investigação e é integrado às outras fontes.'],
@@ -256,7 +256,7 @@ function liveLine(){const n=Object.values(tally[r]||{}).length;$('#live').textCo
 function render(){
   if(r>=ROUNDS.length)return final();
   answered=false;sel=null;placed=[];
-  const R=ROUNDS[r];say(R.say||SAY[R.sk??r],'hi',R.say?'':'intro'+(R.sk??r));track();$('#round').textContent=`Desafio ${r+1} de ${ROUNDS.length}`;liveLine();
+  const R=ROUNDS[r];say(R.say||SAY[R.sk??r],'hi',R.say?(R.ak||''):'intro'+(R.sk??r));track();$('#round').textContent=`Desafio ${r+1} de ${ROUNDS.length}`;liveLine();
   const st=$('#stage');
   if(R.type==='order'){orderRound(R,st);return}
   if(R.type==='mc'){
