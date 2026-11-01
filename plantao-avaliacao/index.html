@@ -167,9 +167,16 @@ body{background:#f3f7f9;color:#203744}.wrap{max-width:760px;gap:20px}.wrap>heade
 .avatar.vid #irisVid{opacity:1}
 .avatar.vid:before{z-index:2}.avatar.vid #iris,.avatar.speaking #iris{animation:none!important}.avatar #iris{will-change:auto!important}
 @media(prefers-reduced-motion:reduce){.avatar #irisVid{display:none}}
+</style><style id="crew">
+.crew{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:2px 0 -6px;padding:0;list-style:none}
+.crew li{background:var(--card,#fff);color:var(--teal,#087f8c);border:1px solid var(--line,#dce6eb);border-radius:999px;padding:6px 14px;font-size:.82rem;font-weight:700;letter-spacing:.02em;box-shadow:0 4px 12px #0a2f3a14;animation:crew-float 4.2s ease-in-out infinite}
+.crew li:nth-child(2){animation-delay:-1s}.crew li:nth-child(3){animation-delay:-2.1s}.crew li:nth-child(4){animation-delay:-3.1s}
+@keyframes crew-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@media(prefers-reduced-motion:reduce){.crew li{animation:none}}
 </style></head>
 <body><a class="skip" href="#stage">Ir para o desafio</a>
 <div class="wrap">
+  <ul class="crew" aria-label="Grupo"><li>Drieli</li><li>Geane</li><li>Mariane</li><li>Raimundo</li></ul>
   <header>
     <div class="eyebrow">Seminário · Psicologia Hospitalar</div>
     <h1 aria-label="Psico Plantão">Psico<br>Plantão</h1>
