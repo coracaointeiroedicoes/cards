@@ -414,6 +414,7 @@ document.addEventListener('visibilitychange',()=>{if(document.hidden){if(curAudi
   let cur='',on=false;
   function show(f){if(av.classList.contains('vid')!==f)av.classList.toggle('vid',f)}
   function sync(){
+    if(v.dataset.segment==='true')return;
     const talking=av.classList.contains('speaking');
     if(talking===on&&(!talking||cur===(av.classList.contains('think')?'talk-b.mp4':'talk-a.mp4')))return;
     on=talking;
@@ -426,8 +427,15 @@ document.addEventListener('visibilitychange',()=>{if(document.hidden){if(curAudi
   new MutationObserver(sync).observe(av,{attributes:true,attributeFilter:['class']});
   v.addEventListener('error',()=>show(false));
 })();
-</script><script>(function(){const a=document.getElementById('modo');if(!a)return;a.textContent=AULA?'Modo aula ativo (5 desafios, cerca de 5 min). Ver versão completa':'Modo aula: versão curta, cerca de 5 min';a.href=location.pathname+(AULA?'':'?aula=1')})();</script></body>
+</script><script>(function(){const a=document.getElementById('modo');if(!a)return;a.textContent=AULA?'Modo aula ativo (5 desafios, cerca de 5 min). Ver versão completa':'Modo aula: versão curta, cerca de 5 min';a.href=location.pathname+(AULA?'':'?aula=1')})();</script><script>
+(()=>{const v=document.getElementById('irisVid'),av=document.getElementById('avatar');const originalSpeak=speak;let boundary=0;
+function stopSegment(){if(v.dataset.segment!=='true')return;v.pause();v.muted=true;v.loop=true;v.dataset.segment='false';av.classList.remove('vid','speaking','talk')}
+speak=function(html,key){stopSegment();if(!voiceOn)return;if(key!=='ravlt'&&key!=='relogio'){originalSpeak(html,key);return}try{speechSynthesis.cancel()}catch(e){}if(curAudio){curAudio.pause();curAudio=null}v.dataset.segment='true';v.loop=false;v.muted=false;v.removeAttribute('aria-hidden');v.src='instrumentos-narrados.mp4';const start=key==='ravlt'?0:9;boundary=key==='ravlt'?9:16.8;v.onloadedmetadata=()=>{if(v.dataset.segment!=='true')return;v.currentTime=start;v.play().then(()=>av.classList.add('vid','speaking','talk')).catch(()=>{stopSegment();document.getElementById('say').insertAdjacentHTML('beforeend','<br><small>Toque em Ouvir novamente para iniciar o vídeo.</small>')})};v.load()};
+v.addEventListener('timeupdate',()=>{if(v.dataset.segment==='true'&&v.currentTime>=boundary)stopSegment()});v.addEventListener('ended',stopSegment);document.getElementById('voice').addEventListener('click',()=>{if(!voiceOn)stopSegment()});document.addEventListener('visibilitychange',()=>{if(document.hidden)stopSegment()});
+})();
+</script></body>
 </html>
+
 
 
 
