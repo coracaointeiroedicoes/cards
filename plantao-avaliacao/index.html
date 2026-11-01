@@ -293,7 +293,9 @@ let curAudio=null;
 function pickVoice(){try{const v=speechSynthesis.getVoices().filter(x=>/^pt/i.test(x.lang));
   const score=x=>(/natural|online/i.test(x.name)?4:0)+(/francisca|thalita|vit[oó]ria|maria|luciana|camila|google/i.test(x.name)?3:0)+(/pt[-_]BR/i.test(x.lang)?2:0)-(/daniel|antonio|ant[oô]nio|felipe|ricardo|jorge|male/i.test(x.name)?6:0);
   ptVoice=v.sort((a,b)=>score(b)-score(a))[0]||null}catch(e){}}
+let ttsTok=0;
 function speak(html,key){
+  ttsTok++;
   if(!voiceOn)return;
   try{if(curAudio){curAudio.pause();curAudio=null}}catch(e){}
   if(key&&AUDIO[key]){try{speechSynthesis.cancel()}catch(e){}
@@ -302,7 +304,7 @@ function speak(html,key){
   try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(html.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim());
     u.lang='pt-BR';if(ptVoice)u.voice=ptVoice;u.rate=1.02;u.pitch=1.1;
     u.onstart=()=>$('#avatar').classList.add('talk','speaking');u.onend=u.onerror=()=>$('#avatar').classList.remove('talk','speaking');
-    speechSynthesis.speak(u)}catch(e){}
+    const tk=++ttsTok;setTimeout(()=>{if(tk===ttsTok&&voiceOn)try{speechSynthesis.speak(u)}catch(e){}},100)}catch(e){}
 }
 (function initVoice(){
   if(!('speechSynthesis' in window)&&!Object.keys(AUDIO).length)return;
