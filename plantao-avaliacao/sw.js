@@ -1,4 +1,4 @@
-const V='plantao-realista-v12';
+const V='plantao-realista-v13';
 const FILES=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./iris-420.jpg','./talk-a.mp4','./talk-b.mp4'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(V).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('plantao-')&&k!==V).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));

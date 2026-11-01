@@ -180,6 +180,7 @@ body{background:#f3f7f9;color:#203744}.wrap{max-width:760px;gap:20px}.wrap>heade
   <div class="guide"><div class="avatar" id="avatar"><img id="iris" src="iris-420.jpg" alt="Dra. Íris, personagem de jaleco branco e óculos, sorrindo" width="1254" height="1254"><video id="irisVid" muted playsinline loop preload="auto" aria-hidden="true" tabindex="-1"></video></div><div class="bubble" id="say"></div></div>
 <button class="voice" id="voice" type="button" aria-pressed="false" hidden>Ativar voz da Dra. Íris</button>
 <main tabindex="-1" id="stage" class="card" aria-live="polite"></main>
+    <p class="foot" style="text-align:center"><a id="modo" href="#"></a></p>
     <p class="foot">Situação criada pelo grupo para exercício. Base: Resolução CFP nº 31/2022, Cartilha de Avaliação Psicológica (CFP, 2022) e folder do grupo. UNAMA · Avaliação Psicológica · 2026.</p>
 </div>
 
@@ -231,6 +232,8 @@ const ROUNDS=[
  {steps:[0,1,2,3,4,5],sk:4,type:'order',title:'Teste final · Monte o roteiro',q:'Toque nos passos na ordem em que acontecem na avaliação no hospital. Atenção: cada erro tira 1 ponto e, no terceiro erro, o roteiro recomeça.',
   seq:['Demanda: o pedido da equipe vira pergunta clínica','Viabilidade e consentimento: estado clínico, tempo, ambiente e aceite','Planejar as fontes: fundamentais e complementares','Coletar: entrevista, observação, prontuário e testes breves','Integrar os dados e levantar hipóteses','Devolver, registrar e encaminhar']}
 ];
+const AULA=/[?&]aula/.test(location.search);
+if(AULA)ROUNDS.splice(1,2); // modo aula: 5 desafios, cerca de 3 a 5 minutos
 const SAY={
  0:'Oi! Eu sou a <b>Dra. Íris</b>, psicóloga virtual do plantão. Vou te acompanhar nos seis passos. Primeiro: o que a família ou a equipe pede nem sempre é o que precisamos descobrir.',
  1:'No hospital, o atendimento precisa <b>caber na internação</b>. Pense em dor, cansaço, interrupções e no aceite da paciente.',
@@ -423,7 +426,7 @@ document.addEventListener('visibilitychange',()=>{if(document.hidden){if(curAudi
   new MutationObserver(sync).observe(av,{attributes:true,attributeFilter:['class']});
   v.addEventListener('error',()=>show(false));
 })();
-</script></body>
+</script><script>(function(){const a=document.getElementById('modo');if(!a)return;a.textContent=AULA?'Modo aula ativo (5 desafios, cerca de 5 min). Ver versão completa':'Modo aula: versão curta, cerca de 5 min';a.href=location.pathname+(AULA?'':'?aula=1')})();</script></body>
 </html>
 
 
