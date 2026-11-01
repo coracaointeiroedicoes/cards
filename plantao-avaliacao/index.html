@@ -208,13 +208,27 @@ const ROUNDS=[
    ['Teste não avaliado ou não aprovado no SATEPSI',2,'Não serve nem como fonte complementar.'],
    ['Concluir usando só fontes complementares',2,'Concluir só com elas é falta ética.']],
   bins:[['Fundamentais','O que sustenta a conclusão'],['Complementares','O que contextualiza'],['Não permitido','Nem como apoio']]},
- {steps:[4,5],type:'mc',title:'Passos 5 e 6 · Integrar e devolver',q:'Um rastreio de ansiedade deu pontuação alta. A família quer saber “o que ela tem”. O que fazer?',
+ {steps:[2,3],sk:null,type:'mc',title:'Passos 3 e 4 · Instrumento 1: RAVLT',say:'Agora vamos escolher instrumentos. O primeiro é o <b>RAVLT</b>, o Teste de Aprendizagem Auditivo-Verbal de Rey, que avalia memória episódica verbal.',
+  q:'A equipe quer saber como está a memória da paciente após o AVC. O RAVLT leva de 30 a 45 minutos e é de uso restrito ao psicólogo. Quando ele faz sentido na internação?',
+  opts:[
+   ['Sempre, porque é o teste mais completo e deve entrar em toda internação.',false,'Completo não significa adequado. Duração, cansaço e tempo de internação pesam na escolha.'],
+   ['Quando a demanda é memória verbal e a paciente tolera a aplicação (ou ela pode ser dividida). Ele avalia aprendizagem, evocação imediata e tardia e reconhecimento.',true,'Escolha pela demanda e pela viabilidade. A evocação tardia pede um intervalo de cerca de 20 minutos.'],
+   ['Quando qualquer profissional da equipe quiser aplicar, pois é de uso livre.',false,'É de uso restrito ao psicólogo. Consulte o SATEPSI para a situação atual do teste.'],
+   ['Só em internação curta, para economizar tempo.',false,'Internação curta e paciente cansada são justamente os casos em que ele pode não caber.']]},
+ {steps:[2,3],sk:null,type:'mc',title:'Passos 3 e 4 · Instrumento 2: Teste do Relógio',say:'O segundo instrumento é o <b>Teste do Desenho do Relógio</b>. Ele é breve e simples, e ajuda quando o tempo na internação é curto.',
+  q:'A internação é curta e a paciente se cansa fácil. Há tempo para uma única tentativa de rastreio cognitivo à beira do leito. Para que serve o Teste do Desenho do Relógio, que leva de 5 a 10 minutos?',
+  opts:[
+   ['Rastrear dificuldades cognitivas de forma rápida, com papel e lápis, e indicar se vale aprofundar a avaliação. Ele não fecha diagnóstico sozinho.',true,'Por ser breve e simples, cabe no leito. O resultado orienta a investigação e é integrado às outras fontes.'],
+   ['Fechar o diagnóstico de demência, pois o relógio é muito sensível.',false,'Rastreio sinaliza e orienta. Diagnóstico exige integração de várias fontes.'],
+   ['Substituir a entrevista e a observação, já que dispensa a conversa com a paciente.',false,'Nenhum teste substitui entrevista, história e observação.'],
+   ['Não cabe na enfermaria, porque exige sala silenciosa e material específico.',false,'O material é simples (folha e lápis), e o capítulo o descreve como de fácil aplicação.']]},
+ {steps:[4,5],sk:3,type:'mc',title:'Passos 5 e 6 · Integrar e devolver',q:'Um rastreio de ansiedade deu pontuação alta. A família quer saber “o que ela tem”. O que fazer?',
   opts:[
    ['Dizer que ela tem transtorno de ansiedade, pois a escala indicou.',false,'Rastreio sinaliza uma necessidade. O escore isolado não define diagnóstico.'],
    ['Relacionar a pontuação à entrevista, à história e à equipe; levantar hipóteses; comunicar o necessário, com os limites, e combinar quem acompanha.',true,'Integração e devolutiva compreensível, sem expor além do necessário, e com encaminhamento claro.'],
    ['Entregar o resultado detalhado a quem pedir, para ser transparente.',false,'Comunicar só o necessário ao cuidado, respeitando o sigilo.']]}
 ,
- {steps:[0,1,2,3,4,5],type:'order',title:'Teste final · Monte o roteiro',q:'Toque nos passos na ordem em que acontecem na avaliação no hospital. Atenção: cada erro tira 1 ponto e, no terceiro erro, o roteiro recomeça.',
+ {steps:[0,1,2,3,4,5],sk:4,type:'order',title:'Teste final · Monte o roteiro',q:'Toque nos passos na ordem em que acontecem na avaliação no hospital. Atenção: cada erro tira 1 ponto e, no terceiro erro, o roteiro recomeça.',
   seq:['Demanda: o pedido da equipe vira pergunta clínica','Viabilidade e consentimento: estado clínico, tempo, ambiente e aceite','Planejar as fontes: fundamentais e complementares','Coletar: entrevista, observação, prontuário e testes breves','Integrar os dados e levantar hipóteses','Devolver, registrar e encaminhar']}
 ];
 const SAY={
@@ -239,7 +253,7 @@ function liveLine(){const n=Object.values(tally[r]||{}).length;$('#live').textCo
 function render(){
   if(r>=ROUNDS.length)return final();
   answered=false;sel=null;placed=[];
-  const R=ROUNDS[r];say(SAY[r],'hi','intro'+r);track();$('#round').textContent=`Desafio ${r+1} de ${ROUNDS.length}`;liveLine();
+  const R=ROUNDS[r];say(R.say||SAY[R.sk??r],'hi',R.say?'':'intro'+(R.sk??r));track();$('#round').textContent=`Desafio ${r+1} de ${ROUNDS.length}`;liveLine();
   const st=$('#stage');
   if(R.type==='order'){orderRound(R,st);return}
   if(R.type==='mc'){
