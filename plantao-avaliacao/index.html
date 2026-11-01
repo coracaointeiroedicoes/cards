@@ -240,7 +240,7 @@ const SAY={
  2:'Hora de planejar as fontes. Atenção às três caixas: o que sustenta a conclusão, o que só contextualiza e o que <b>não pode</b> ser usado.',
  3:'Quase lá! Agora integrar os dados e devolver. Lembre que o escore isolado não define diagnóstico.',
  4:'Teste final! Mostre que o roteiro ficou na cabeça. Toque na ordem certa. Errou? Tudo bem, é só tentar de novo.'};
-const LET='ABC';
+const LET='ABCD';
 const $=s=>document.querySelector(s);
 let r=0,score=0,answered=false,sel=null,placed=[],room=null,tally={};
 const me=(()=>{try{return localStorage.getItem('pa-id')||(()=>{const v=Math.random().toString(36).slice(2,8);localStorage.setItem('pa-id',v);return v})()}catch(e){return Math.random().toString(36).slice(2,8)}})();
